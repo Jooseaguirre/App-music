@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1584205420 source:e:\appmusic\appmusica\main.cpp
+	<iostream>
+
+1746387611 source:e:\appmusic\appmusica\fecha.cpp
+	"fecha.h"
+
+1746387659 e:\appmusic\appmusica\fecha.h
+	<iostream>
+
+1746393383 source:e:\appmusic\appmusica\suscriptor.cpp
+	"suscriptor.h"
+	<cstring>
+	<string>
+
+1746576337 e:\appmusic\appmusica\suscriptor.h
+	<string>
+	<iostream>
+	"fecha.h"
+
+1746483722 source:e:\appmusic\appmusica\menu.cpp
+	<iostream>
+	<cstdlib>
+	"menu.h"
+
+1746482464 e:\appmusic\appmusica\menu.h
+
