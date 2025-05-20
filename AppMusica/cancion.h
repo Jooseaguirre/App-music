@@ -28,4 +28,4 @@ class Cancion{
         void setAutor(std::string autor);
         void setInterprete(std::string interprete);
         void setFechaDePublicacion(Fecha fecha);
-}
+};

@@ -50,7 +50,7 @@ std::string Suscriptor::getEmail(){
     return _email;
 }
 
-Fecha Suscriptor::getFecha(){
+Fecha Suscriptor::getFechaNacimiento() {
     return _fecha_nacimiento;
 }
 

@@ -33,6 +33,8 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="Suscriptor.cpp" />
+		<Unit filename="acceso.cpp" />
+		<Unit filename="acceso.h" />
 		<Unit filename="cancion.cpp" />
 		<Unit filename="cancion.h" />
 		<Unit filename="fecha.cpp" />

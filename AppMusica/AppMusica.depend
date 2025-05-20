@@ -8,10 +8,11 @@
 1746387659 e:\appmusic\appmusica\fecha.h
 	<iostream>
 
-1746393383 source:e:\appmusic\appmusica\suscriptor.cpp
-	"suscriptor.h"
+1747505771 source:e:\appmusic\appmusica\suscriptor.cpp
 	<cstring>
+	"suscriptor.h"
 	<string>
+	"fecha.h"
 
 1746576337 e:\appmusic\appmusica\suscriptor.h
 	<string>
@@ -24,4 +25,12 @@
 	"menu.h"
 
 1746482464 e:\appmusic\appmusica\menu.h
+
+1746576947 source:e:\appmusic\appmusica\cancion.cpp
+	<cstring>
+	"cancion.h"
+	<string>
+
+1747505585 e:\appmusic\appmusica\cancion.h
+	"fecha.h"
 
