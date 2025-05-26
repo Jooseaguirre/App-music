@@ -32,17 +32,25 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Suscriptor.cpp" />
 		<Unit filename="acceso.cpp" />
 		<Unit filename="acceso.h" />
+		<Unit filename="accesoarchivo.cpp" />
+		<Unit filename="accesoarchivo.h" />
 		<Unit filename="cancion.cpp" />
 		<Unit filename="cancion.h" />
+		<Unit filename="cancionarchivo.cpp" />
+		<Unit filename="cancionarchivo.h" />
 		<Unit filename="fecha.cpp" />
 		<Unit filename="fecha.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h" />
+		<Unit filename="suscriptor.cpp" />
 		<Unit filename="suscriptor.h" />
+		<Unit filename="suscriptorarchivo.cpp" />
+		<Unit filename="suscriptorarchivo.h" />
+		<Unit filename="suscriptormanager.cpp" />
+		<Unit filename="suscriptormanager.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

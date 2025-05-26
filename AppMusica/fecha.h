@@ -9,9 +9,11 @@ public:
     int dia;
     int mes;
     int anio;
+    int hora;
+    int minuto;
 
     Fecha();
-    Fecha(int d, int m, int a);
+    Fecha(int d, int m, int a, int h, int mini);
     void mostrar();
 };
 

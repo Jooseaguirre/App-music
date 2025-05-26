@@ -1,0 +1,56 @@
+#include "suscriptorarchivo.h"
+
+SuscriptorArchivo::SuscriptorArchivo(){
+    _nombreArchivo = "suscriptor.dat";
+}
+
+SuscriptorArchivo::SuscriptorArchivo(std::string nombreArchivo){
+    _nombreArchivo = nombreArchivo;
+}
+
+bool SuscriptorArchivo::guardar(Suscriptor reg){
+
+FILE* p = fopen(_nombreArchivo.c_str(), "ab");
+if (p == nullptr) return false;
+bool resultado = fwrite(&reg, sizeof(Suscriptor), 1 , p) == 1;
+fclose(p);
+return resultado;
+}
+
+
+bool SuscriptorArchivo::guardar(Suscriptor reg, int pos){
+
+FILE* p = fopen(_nombreArchivo.c_str(), "rb+");
+if (p == nullptr) return false;
+fseek (p, sizeof(Suscriptor) * pos, SEEK_SET);
+bool resultado = fwrite(&reg, sizeof(Suscriptor), 1 , p) == 1;
+fclose(p);
+return resultado;
+}
+
+
+Suscriptor SuscriptorArchivo:: leer (int pos){
+    Suscriptor reg;
+    FILE* p = fopen (_nombreArchivo.c_str(), "rb");
+    if (p == nullptr){
+    return reg;
+    }
+
+    fseek(p , sizeof(Suscriptor) * pos, SEEK_SET);
+    if (fread(&reg, sizeof(Suscriptor), 1, p) != 1){
+    reg = Suscriptor();
+}
+    fclose(p);
+    return reg;
+}
+
+int SuscriptorArchivo::getCantidadRegistros(){
+FILE* p = fopen(_nombreArchivo.c_str(), "rb");
+if (p == nullptr){
+    return 0;
+    }
+fseek (p, 0, SEEK_END);
+int tam = ftell(p);
+fclose(p);
+return tam / sizeof(Suscriptor);
+}
