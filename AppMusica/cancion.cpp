@@ -9,15 +9,13 @@ Cancion::Cancion() {
     _idCancion = 0;
     strcpy(_nombre, "");
     strcpy(_autor, "");
-    strcpy(_interprete, "");
 }
 
 
-Cancion::Cancion(int id, std::string nombre, std::string autor, std::string interprete, Fecha fechaPublicacion) {
+Cancion::Cancion(int id, std::string nombre, std::string autor, Fecha fechaPublicacion) {
     setIdCancion(id);
     setNombre(nombre);
     setAutor(autor);
-    setInterprete(interprete);
     setFechaDePublicacion(fechaPublicacion);
 }
 
@@ -34,9 +32,6 @@ std::string Cancion::getAutor() {
     return _autor;
 }
 
-std::string Cancion::getInterprete() {
-    return _interprete;
-}
 
 Fecha Cancion::getFechaDePublicacion() {
     return _fechaDePublicacion;
@@ -54,9 +49,6 @@ void Cancion::setAutor(std::string autor) {
     strcpy(_autor, autor.c_str());
 }
 
-void Cancion::setInterprete(std::string interprete) {
-    strcpy(_interprete, interprete.c_str());
-}
 
 void Cancion::setFechaDePublicacion(Fecha fecha) {
     _fechaDePublicacion = fecha;

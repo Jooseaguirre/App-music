@@ -54,3 +54,30 @@ int tam = ftell(p);
 fclose(p);
 return tam / sizeof(Suscriptor);
 }
+
+
+
+
+
+int SuscriptorArchivo::buscar(const std::string& dniBuscado){
+FILE* p;
+Suscriptor reg;
+int posicion = 0;
+
+    p = fopen(_nombreArchivo.c_str(), "rb");
+    if (pFile == nullptr){
+        return -2;
+
+    while(fread(&reg, sizeof(Suscriptor), 1, pFile) == 1){
+        if (reg.getDni() == dniBuscado){
+            fclose(p);
+            return posicion;
+        }
+        posicion++;
+    }
+
+    fclose(pFile);
+    return -1;
+}
+}
+ssss

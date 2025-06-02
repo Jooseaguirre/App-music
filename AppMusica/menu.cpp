@@ -89,9 +89,10 @@ void menuSuscriptores() {
         cout << "****************** MENÚ SUSCRIPTORES ******************" << endl;
         cout << "1. Agregar Suscriptor" << endl;
         cout << "2. Modificar Suscriptor" << endl;
-        cout << "3. Mostrar cantidad de Suscriptores" << endl;
-        cout << "4. Listar todos los suscriptores" << endl;
-        cout << "5. Salir al menú principal" << endl;
+        cout << "3. Eliminar Suscriptor" << endl;
+        cout << "4. Mostrar cantidad de Suscriptores" << endl;
+        cout << "5. Listar todos los suscriptores" << endl;
+        cout << "6. Salir al menú principal" << endl;
         cout << "Seleccione una opción (1-5): ";
         cin >> opcionSuscriptor;
 
@@ -103,12 +104,15 @@ void menuSuscriptores() {
                 sManager.modificarSuscriptores();
                 break;
             case 3:
-                sManager.mostrarCantidadSuscriptores();
+                sManager.eliminarSuscriptor();
                 break;
             case 4:
-                sManager.listarTodos();
+                sManager.mostrarCantidadSuscriptores();
                 break;
             case 5:
+                sManager.listarTodos();
+                break;
+            case 6:
                  cout << "Saliendo del programa..." << endl;
                 return;
             default:

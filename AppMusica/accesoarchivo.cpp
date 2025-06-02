@@ -3,7 +3,7 @@
 
 
 AccesoArchivo::AccesoArchivo(){
-    _nombreArchivo = "accesos.dat"
+    _nombreArchivo = "accesos.dat";
 }
 
 AccesoArchivo::AccesoArchivo(std::string nombreArchivo){

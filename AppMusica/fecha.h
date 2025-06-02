@@ -14,6 +14,7 @@ public:
 
     Fecha();
     Fecha(int d, int m, int a, int h, int mini);
+    void cargar();
     void mostrar();
 };
 

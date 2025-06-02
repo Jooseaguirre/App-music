@@ -7,31 +7,35 @@
 class Suscriptor{
 private:
     int _idSuscriptor;
-    int _dni;
+    char _dni[50];
     char _nombre[50];
     char _apellido[50];
     char _telefono[50];
     char _email[50];
-    Fecha _fecha_nacimiento;
+    bool _activo;
+    Fecha _fechaNacimiento;
 
 public:
     Suscriptor();
-    Suscriptor(int id, int dni, std::string nombre, std::string apellido, std::string telefono, std::string email, Fecha fecha_nacimiento);
+    Suscriptor(int id, std::string dni, std::string nombre, std::string apellido, std::string telefono, std::string email, Fecha fecha_nacimiento);
 
     int getId();
-    int getDni();
+    std::string getDni();
     std::string getNombre();
     std::string getApellido();
     std::string getTelefono();
     std::string getEmail();
+    bool getActivo();
     Fecha getFechaNacimiento();
+    std::string toCSV();
 
     void setId(int id);
-    void setDni(int dni);
+    void setDni(std::string dni);
     void setNombre(std::string nombre);
     void setApellido(std::string apellido);
     void setTelefono(std::string telefono);
     void setEmail(std::string email);
+    void setActivo(bool activo);
     void setFecha(Fecha fecha_nacimiento);
 };
 
