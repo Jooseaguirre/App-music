@@ -63,3 +63,22 @@ int tam = ftell(p);
 fclose(p);
 return tam / sizeof(Cancion);
 }
+
+Cancion CancionArchivo::buscarPorId(int id) {
+    Cancion reg;
+    FILE* p = fopen(_nombreArchivo.c_str(), "rb");
+    if (p == nullptr) {
+        reg.setIdCancion(-1);
+        return reg;
+    }
+    while (fread(&reg, sizeof(Cancion), 1, p) == 1) {
+        if (reg.getIdCancion() == id) {
+            fclose(p);
+            return reg;
+        }
+    }
+    fclose(p);
+    reg.setIdCancion(-1);
+    return reg;
+}
+

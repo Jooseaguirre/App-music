@@ -60,17 +60,17 @@ return tam / sizeof(Suscriptor);
 
 
 int SuscriptorArchivo::buscar(const std::string& dniBuscado){
-FILE* p;
+FILE *pFile;
 Suscriptor reg;
 int posicion = 0;
 
-    p = fopen(_nombreArchivo.c_str(), "rb");
+    pFile = fopen(_nombreArchivo.c_str(), "rb");
     if (pFile == nullptr){
         return -2;
 
     while(fread(&reg, sizeof(Suscriptor), 1, pFile) == 1){
         if (reg.getDni() == dniBuscado){
-            fclose(p);
+            fclose(pFile);
             return posicion;
         }
         posicion++;
@@ -80,4 +80,3 @@ int posicion = 0;
     return -1;
 }
 }
-ssss

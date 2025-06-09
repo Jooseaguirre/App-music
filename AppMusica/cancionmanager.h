@@ -8,4 +8,5 @@ public:
     void mostrarCantidadCanciones();
     void listarTodas();
     void buscarPorId();
+    void borrarCancion();
 };

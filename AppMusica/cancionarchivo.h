@@ -14,4 +14,6 @@ public:
     bool guardar (Cancion reg, int pos);
     Cancion leer(int pos);
     int getCantidadRegistros();
+    Cancion buscarPorId(int id);
+
 };

@@ -1,4 +1,7 @@
+#include <iostream>
 #include "fecha.h"
+
+using namespace std;
 
 Fecha::Fecha() {
     dia = 1;

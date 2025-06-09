@@ -37,6 +37,9 @@ public:
     void setEmail(std::string email);
     void setActivo(bool activo);
     void setFecha(Fecha fecha_nacimiento);
+
+    int getIdSuscriptor() { return _idSuscriptor; }
+    void setIdSuscriptor(int id) { _idSuscriptor = id; }
 };
 
 

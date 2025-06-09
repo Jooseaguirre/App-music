@@ -6,3 +6,5 @@ void menuSuscriptores();
 void menuAccesos();
 void menuMantenimiento();
 void menuReportes();
+void menuArtistas();
+void menuAcceso();

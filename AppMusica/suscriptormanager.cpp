@@ -18,7 +18,7 @@ void SuscriptorManager::cargarSuscriptor(){
 
     SuscriptorArchivo arch;
     int total = arch.getCantidadRegistros();
-    for (i = 0; i < total; i++){
+    for (int i = 0; i < total; i++){
         Suscriptor aux = arch.leer(i);
         if (aux.getIdSuscriptor() > id){
             id = aux.getIdSuscriptor();
@@ -29,16 +29,14 @@ s.setIdSuscriptor(id + 1);
 
 
 
-char dni[50]
-char _apellido[50];
-char _telefono[50];
-char _email[50];
+std::string dni, nombre, apellido, telefono, email;
 Fecha f;
 
 
 cout << "Ingrese DNI: ";
+cin >> dni;
 cin.ignore();
-cin.getline(cin, dni);
+
 
 cout << "Ingrese nombre: ";
 getline(cin, nombre);
@@ -86,7 +84,7 @@ void SuscriptorManager::listarTodos(){
     Suscriptor s;
     int cantidad = sArchivo.getCantidadRegistros();
 
-    for (int i = 0, i < cantidad ; i++){
+    for (int i = 0; i < cantidad ; i++){
         s = sArchivo.leer(i);
         cout << s.toCSV() << endl;
     }
@@ -165,7 +163,7 @@ cin >> dni;
 
 
 SuscriptorArchivo sArchivo;
-posicion = sArchivo.buscar(dni);
+int posicion = sArchivo.buscar(dni);
 
 if (posicion >= 0){
     Suscriptor reg = sArchivo.leer(posicion);

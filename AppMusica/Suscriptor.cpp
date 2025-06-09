@@ -16,7 +16,7 @@ Suscriptor::Suscriptor(){
      _activo = true;
 }
 
-Suscriptor::Suscriptor(/*int id,*/ std::string dni, std::string nombre, std::string apellido, std::string telefono, std::string email, Fecha fechaNacimiento){
+Suscriptor::Suscriptor(int id, std::string dni, std::string nombre, std::string apellido, std::string telefono, std::string email, Fecha fechaNacimiento){
     /*setIdSuscriptor(id);*/
     setDni(dni);
     setNombre(nombre);
@@ -28,10 +28,6 @@ Suscriptor::Suscriptor(/*int id,*/ std::string dni, std::string nombre, std::str
 
 }
 
-
-/*int Suscriptor::getIdSuscriptor(){
-    return _idSuscriptor;
-}*/
 
 std::string Suscriptor::getDni(){
     return _dni;
@@ -60,11 +56,6 @@ Fecha Suscriptor::getFechaNacimiento() {
 bool Suscriptor::getActivo() {
     return _activo;
 }
-
-
-/*void Suscriptor::setIdSuscriptor(int id){
-    _idSuscriptor = id;
-}*/
 
 void Suscriptor::setDni(std::string dni){
     strcpy(_dni, dni.c_str());
