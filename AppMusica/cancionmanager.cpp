@@ -21,12 +21,12 @@ void CancionManager::cargarCancion(){
         }
     }
 
-c.setIdCancion (idMax + 1);
+s.setIdCancion (idMax + 1);
 
 
 
-char nombre[50]
-char autor[50];
+string nombre;
+string autor;
 Fecha f;
 
 cout << "Ingrese nombre de la cancion: ";
@@ -39,14 +39,14 @@ getline(cin, autor);
 cout << "Ingrese fecha de publicacion: ";
 f.cargar();
 
-c.setNombre(nombre);
-c.setAutor(autor);
-c.setFechaDePublicacion(f);
+s.setNombre(nombre);
+s.setAutor(autor);
+s.setFechaDePublicacion(f);
 
-if (arch.guardar(c)) {
-    cout << "Canción guardada exitosamente.\n";
+if (cArchivo.guardar(s)) {
+    cout << "Cancion guardada exitosamente.\n";
 } else {
-    cout << "Error al guardar la canción.\n";
+    cout << "Error al guardar la cancion.\n";
     }
 }
 
@@ -74,23 +74,23 @@ for (int i = 0; i < total; i++) {
         getline(cin, autor);
 
 
-        cout << "Nueva fecha de publicación:\n";
-        fecha.Cargar();
+        cout << "Nueva fecha de publicacion:\n";
+        fecha.cargar();
 
         c.setNombre(nombre);
         c.setAutor(autor);
         c.setFechaDePublicacion(fecha);
 
         if (cArchivo.guardar(c, i)) {
-            cout << "Canción modificada correctamente.";
+            cout << "Cancion modificada correctamente.";
         } else {
-            cout << "Error al modificar la canción.";
+            cout << "Error al modificar la cancion.";
         }
         return;
     }
 }
 
-cout << "No se encontró una canción con ese ID.";
+cout << "No se encontró una cancion con ese ID.";
 
 }
 
@@ -113,7 +113,8 @@ void CancionManager::listarTodas() {
             cout << "Nombre: " << c.getNombre() << endl;
             cout << "Autor: " << c.getAutor() << endl;
             Fecha f = c.getFechaDePublicacion();
-            cout << "Fecha de publicación: " << f.toString() << endl;
+            cout << "Fecha de publicación: "  << endl;
+            f.mostrar();
             cout << "-----------------------------\n";
         }
     }
@@ -121,7 +122,7 @@ void CancionManager::listarTodas() {
 
 void CancionManager::buscarPorId() {
     int id;
-    cout << "Ingrese ID de la canción a buscar: ";
+    cout << "Ingrese ID de la cancion a buscar: ";
     cin >> id;
 
     CancionArchivo cArchivo;
@@ -134,10 +135,34 @@ void CancionManager::buscarPorId() {
             cout << "Nombre: " << c.getNombre() << endl;
             cout << "Autor: " << c.getAutor() << endl;
             Fecha f = c.getFechaDePublicacion();
-            cout << "Fecha de publicación: " << f.toString() << endl;
+            cout << "Fecha de publicacion: " << endl;
+            f.mostrar();
             return;
         }
     }
 
-    cout << "Canción no encontrada.\n";
+    cout << "Cancion no encontrada.\n";
+}
+
+void CancionManager::borrarCancion() {
+    int id;
+    cout << "Ingrese el ID de la cancion a borrar: ";
+    cin >> id;
+
+    CancionArchivo cArchivo;
+    int total = cArchivo.getCantidadRegistros();
+
+    for (int i = 0; i < total; i++) {
+        Cancion c = cArchivo.leer(i);
+        if (c.getIdCancion() == id) {
+            c.setIdCancion(-1);
+            if (cArchivo.guardar(c, i)) {
+                cout << "Cancion borrada \n";
+            } else {
+                cout << "Error al borrar la cancion \n";
+            }
+            return;
+        }
+    }
+    cout << "No se encontro una cancion con ese ID \n";
 }
