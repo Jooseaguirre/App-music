@@ -5,10 +5,10 @@
 using namespace std;
 
 void ReportesManager::artistaMasEscuchado() {
-    cout << " " << endl;
+    cout << "Función no implementada: artista más escuchado" << endl;
 }
 
 void ReportesManager::usuarioMasEscuchado() {
-    cout << " " << endl;
+    cout << "Función no implementada: usuario que más escuchó" << endl;
 }
 
