@@ -45,10 +45,6 @@
 		<Unit filename="artistaarchivo.h" />
 		<Unit filename="artistamanager.cpp" />
 		<Unit filename="artistamanager.h" />
-		<Unit filename="artistasporcancion.cpp" />
-		<Unit filename="artistasporcancion.h" />
-		<Unit filename="artistasporcancionarchivo.cpp" />
-		<Unit filename="artistasporcancionarchivo.h" />
 		<Unit filename="cancion.cpp" />
 		<Unit filename="cancion.h" />
 		<Unit filename="cancionarchivo.cpp" />

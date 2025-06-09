@@ -308,3 +308,275 @@
 	"suscriptormanager.h"
 	"fecha.h"
 
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\acceso.cpp
+	<cstring>
+	"acceso.h"
+	<string>
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\acceso.h
+	"fecha.h"
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\fecha.h
+	<iostream>
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\accesoarchivo.cpp
+	"accesoarchivo.h"
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\accesoarchivo.h
+	"acceso.h"
+	<string>
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\accesomanager.cpp
+	"AccesoManager.h"
+	"cancionarchivo.h"
+	<iostream>
+	<cstdio>
+	<cstring>
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\accesomanager.h
+	<string>
+	"Cancion.h"
+	"CancionManager.h"
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\cancion.h
+	"fecha.h"
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\cancionmanager.h
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\cancionarchivo.h
+	"cancion.h"
+	<string>
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\artista.cpp
+	"artista.h"
+	<iostream>
+	<cstring>
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\artista.h
+	<string>
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\artistaarchivo.cpp
+	"artistaarchivo.h"
+	<cstdio>
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\artistaarchivo.h
+	<string>
+	"artista.h"
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\artistamanager.cpp
+	"artistamanager.h"
+	"artistaarchivo.h"
+	"artista.h"
+	<iostream>
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\artistamanager.h
+	"artista.h"
+	<string>
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\cancion.cpp
+	<cstring>
+	"cancion.h"
+	<string>
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\cancionarchivo.cpp
+	"cancionarchivo.h"
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\cancionmanager.cpp
+	<iostream>
+	<cstring>
+	"CancionManager.h"
+	"cancionarchivo.h"
+	"cancion.h"
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\fecha.cpp
+	<iostream>
+	"fecha.h"
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\main.cpp
+	<iostream>
+	"menu.h"
+
+1749509876 c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\menu.h
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\reportesmanager.cpp
+	<iostream>
+	"reportesmanager.h"
+	"artistamanager.h"
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\reportesmanager.h
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\suscriptor.cpp
+	<cstring>
+	"suscriptor.h"
+	<string>
+	"fecha.h"
+	<cstdio>
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\suscriptor.h
+	<string>
+	<iostream>
+	"fecha.h"
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\suscriptorarchivo.cpp
+	"suscriptorarchivo.h"
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\suscriptorarchivo.h
+	<string>
+	"suscriptor.h"
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\suscriptormanager.cpp
+	<iostream>
+	<cstring>
+	"suscriptor.h"
+	"suscriptorarchivo.h"
+	"suscriptormanager.h"
+	"fecha.h"
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\suscriptormanager.h
+
+1749510745 source:c:\users\maia\desktop\proyecto\app\app-music-main\app-music\appmusica\menu.cpp
+	<iostream>
+	<cstdlib>
+	"menu.h"
+	"cancionmanager.h"
+	"suscriptormanager.h"
+	"accesomanager.h"
+	"reportesmanager.h"
+	"artistamanager.h"
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\acceso.cpp
+	<cstring>
+	"acceso.h"
+	<string>
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\acceso.h
+	"fecha.h"
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\fecha.h
+	<iostream>
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\accesoarchivo.cpp
+	"accesoarchivo.h"
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\accesoarchivo.h
+	"acceso.h"
+	<string>
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\accesomanager.cpp
+	"AccesoManager.h"
+	"cancionarchivo.h"
+	<iostream>
+	<cstdio>
+	<cstring>
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\accesomanager.h
+	<string>
+	"Cancion.h"
+	"CancionManager.h"
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\cancion.h
+	"fecha.h"
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\cancionmanager.h
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\cancionarchivo.h
+	"cancion.h"
+	<string>
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\artista.cpp
+	"artista.h"
+	<iostream>
+	<cstring>
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\artista.h
+	<string>
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\artistaarchivo.cpp
+	"artistaarchivo.h"
+	<cstdio>
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\artistaarchivo.h
+	<string>
+	"artista.h"
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\artistamanager.cpp
+	"artistamanager.h"
+	"artistaarchivo.h"
+	"artista.h"
+	<iostream>
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\artistamanager.h
+	"artista.h"
+	<string>
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\cancion.cpp
+	<cstring>
+	"cancion.h"
+	<string>
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\cancionarchivo.cpp
+	"cancionarchivo.h"
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\cancionmanager.cpp
+	<iostream>
+	<cstring>
+	"CancionManager.h"
+	"cancionarchivo.h"
+	"cancion.h"
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\fecha.cpp
+	<iostream>
+	"fecha.h"
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\main.cpp
+	<iostream>
+	"menu.h"
+
+1749509876 c:\users\maia\desktop\proyecto\app\app-music-main\menu.h
+
+1749510745 source:c:\users\maia\desktop\proyecto\app\app-music-main\menu.cpp
+	<iostream>
+	<cstdlib>
+	"menu.h"
+	"cancionmanager.h"
+	"suscriptormanager.h"
+	"accesomanager.h"
+	"reportesmanager.h"
+	"artistamanager.h"
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\suscriptormanager.h
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\reportesmanager.h
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\reportesmanager.cpp
+	<iostream>
+	"reportesmanager.h"
+	"artistamanager.h"
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\suscriptor.cpp
+	<cstring>
+	"suscriptor.h"
+	<string>
+	"fecha.h"
+	<cstdio>
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\suscriptor.h
+	<string>
+	<iostream>
+	"fecha.h"
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\suscriptorarchivo.cpp
+	"suscriptorarchivo.h"
+
+1749508864 c:\users\maia\desktop\proyecto\app\app-music-main\suscriptorarchivo.h
+	<string>
+	"suscriptor.h"
+
+1749508864 source:c:\users\maia\desktop\proyecto\app\app-music-main\suscriptormanager.cpp
+	<iostream>
+	<cstring>
+	"suscriptor.h"
+	"suscriptorarchivo.h"
+	"suscriptormanager.h"
+	"fecha.h"
+

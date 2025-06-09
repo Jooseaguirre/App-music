@@ -6,7 +6,6 @@
 #include "accesomanager.h"
 #include "reportesmanager.h"
 #include "artistamanager.h"
-#include "artistasporcancionmanager.h"
 
 using namespace std;
 
@@ -282,40 +281,3 @@ void menuReportes() {
             } while(opcionReporte != 0);
 
         }
-
-/*void menuArtistasPorCancion() {
-    ArtistasporcancionManager manager;
-    int opcion;
-
-    do {
-        cout << "***** MENU ARTISTAS POR CANCION *****" << endl;
-        cout << "1. Agregar relacion" << endl;
-        cout << "2. Listar relaciones" << endl;
-        cout << "3. Guardar en archivo" << endl;
-        cout << "4. Cargar desde archivo" << endl;
-        cout << "0. Volver" << endl;
-        cout << "Ingrese opcion: ";
-        cin >> opcion;
-
-        switch(opcion) {
-            case 1:
-                manager.agregarRelacion();
-                break;
-            case 2:
-                manager.listarRegistros();
-                break;
-            case 3:
-                manager.guardarEnArchivo("artistasporcancion.dat");
-                break;
-            case 4:
-                manager.cargarDesdeArchivo("artistasporcancion.dat");
-                break;
-            case 0:
-                cout << "Volviendo al menu principal..." << endl;
-                break;
-            default:
-                cout << "Opcion invalida." << endl;
-        }
-    } while (opcion != 0);
-}
-*/
