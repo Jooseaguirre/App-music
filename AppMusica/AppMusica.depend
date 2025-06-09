@@ -156,3 +156,155 @@
 1749493929 source:c:\users\maia\downloads\app-music-main\artistasporcancionarchivo.cpp
 	"artistasporcancionarchivo.h"
 
+1748878884 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\acceso.cpp
+	<cstring>
+	"acceso.h"
+	<string>
+
+1748878884 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\acceso.h
+	"fecha.h"
+
+1749305336 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\fecha.h
+	<iostream>
+
+1748878884 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\accesoarchivo.cpp
+	"accesoarchivo.h"
+
+1748878884 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\accesoarchivo.h
+	"acceso.h"
+	<string>
+
+1749494458 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\accesomanager.cpp
+	"AccesoManager.h"
+	"cancionarchivo.h"
+	<iostream>
+	<cstdio>
+	<cstring>
+
+1749437020 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\accesomanager.h
+	<string>
+	"Cancion.h"
+	"CancionManager.h"
+
+1748878884 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\cancion.h
+	"fecha.h"
+
+1749306328 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\cancionmanager.h
+
+1749437482 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\cancionarchivo.h
+	"cancion.h"
+	<string>
+
+1749493904 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\artista.cpp
+	"artista.h"
+	<iostream>
+	<cstring>
+
+1749426536 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\artista.h
+	<string>
+
+1749492602 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\artistaarchivo.cpp
+	"artistaarchivo.h"
+	<cstdio>
+
+1749426994 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\artistaarchivo.h
+	<string>
+	"artista.h"
+
+1749492876 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\artistamanager.cpp
+	"artistamanager.h"
+	"artistaarchivo.h"
+	"artista.h"
+	<iostream>
+
+1749438124 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\artistamanager.h
+	"artista.h"
+	<string>
+
+1749494942 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\artistasporcancion.cpp
+	"artistasporcancion.h"
+	<iostream>
+
+1749493362 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\artistasporcancion.h
+
+1749493928 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\artistasporcancionarchivo.cpp
+	"artistasporcancionarchivo.h"
+
+1749494062 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\artistasporcancionarchivo.h
+	"artistasporcancion.h"
+	<string>
+
+1748878884 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\cancion.cpp
+	<cstring>
+	"cancion.h"
+	<string>
+
+1749437482 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\cancionarchivo.cpp
+	"cancionarchivo.h"
+
+1749494290 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\cancionmanager.cpp
+	<iostream>
+	<cstring>
+	"CancionManager.h"
+	"cancionarchivo.h"
+	"cancion.h"
+
+1749494814 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\fecha.cpp
+	<iostream>
+	"fecha.h"
+
+1749423228 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\main.cpp
+	<iostream>
+	"menu.h"
+
+1749428840 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\menu.h
+
+1749493694 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\menu.cpp
+	<iostream>
+	<cstdlib>
+	"menu.h"
+	"cancionmanager.h"
+	"suscriptormanager.h"
+	"accesomanager.h"
+	"reportesmanager.h"
+	"artistamanager.h"
+	"artistasporcancionmanager.h"
+
+1748878884 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\suscriptormanager.h
+
+1749493362 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\reportesmanager.h
+
+1749492346 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\artistasporcancionmanager.h
+
+1749493222 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\reportesmanager.cpp
+	<iostream>
+	"reportesmanager.h"
+	"artistamanager.h"
+
+1749494766 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\suscriptor.cpp
+	<cstring>
+	"suscriptor.h"
+	<string>
+	"fecha.h"
+	<cstdio>
+
+1749307500 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\suscriptor.h
+	<string>
+	<iostream>
+	"fecha.h"
+
+1749305568 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\suscriptorarchivo.cpp
+	"suscriptorarchivo.h"
+
+1748878884 c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\suscriptorarchivo.h
+	<string>
+	"suscriptor.h"
+
+1749423026 source:c:\users\maia\desktop\proyecto\app\app-music-main\appmusica\suscriptormanager.cpp
+	<iostream>
+	<cstring>
+	"suscriptor.h"
+	"suscriptorarchivo.h"
+	"suscriptormanager.h"
+	"fecha.h"
+
