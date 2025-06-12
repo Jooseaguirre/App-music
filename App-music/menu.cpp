@@ -51,9 +51,9 @@ void menuUsuario() {
     do {
         cout << "\n======= MENU USUARIO =======" << endl;
         cout << "1. Menu Login" << endl;
-        cout << "2. Reproducir Canción" << endl;
+        cout << "2. Reproducir Cancion" << endl;
         cout << "3. Menu Reportes" << endl;
-        cout << "4. Volver al menú principal" << endl;
+        cout << "4. Volver al menu principal" << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcion;
 
@@ -68,7 +68,7 @@ void menuUsuario() {
                 menuReportes();
                 break;*/
             case 4:
-                cout << "Volviendo al menú principal..." << endl;
+                cout << "Volviendo al menu principal..." << endl;
                 return;
             default:
                 cout << "Opcion invalida. Intente otra vez." << endl;
@@ -107,7 +107,7 @@ void menuAdministrador() {
                 menuMantenimiento();
                 break;
             case 6:
-                cout << "Volviendo al menú principal..." << endl;
+                cout << "Volviendo al menu principal..." << endl;
                 return;
             default:
                 cout << "Opcion invalida. Intente otra vez." << endl;
@@ -122,8 +122,8 @@ void menuAdministrador() {
 
     do {
         cout << "\n===== MENU LOGIN =====" << endl;
-        cout << "1. Iniciar sesión" << endl;
-        cout << "2. Cerrar sesión" << endl;
+        cout << "1. Iniciar sesion" << endl;
+        cout << "2. Cerrar sesion" << endl;
         cout << "3. Mostrar ID suscriptor logueado" << endl;
         cout << "4. Volver al menú principal" << endl;
         cout << "Seleccione una opcion: ";
@@ -137,7 +137,7 @@ void menuAdministrador() {
             }
             case 2:
                 Sesion::cerrarSesion();
-                cout << "Sesión cerrada." << endl;
+                cout << "Sesion cerrada." << endl;
                 break;
             case 3:
                 if (Sesion::estaLogueado()) {
@@ -147,10 +147,10 @@ void menuAdministrador() {
                 }
                 break;
             case 4:
-                cout << "Volviendo al menú principal..." << endl;
+                cout << "Volviendo al menu principal..." << endl;
                 return;
             default:
-                cout << "Opcion inválida, intente nuevamente." << endl;
+                cout << "Opcion invalida, intente nuevamente." << endl;
         }
 
     } while (opcion != 4);
@@ -346,8 +346,8 @@ void menuMantenimiento() {
         switch(opcion) {
             case 1: hacerBackupSuscriptores(); break;
             case 2: recuperarBackupSuscriptores(); break;
-            case 3: cout << "Volviendo al menú anterior..."; break;
-            default: cout << "Opción inválida."; break;
+            case 3: cout << "Volviendo al menu anterior..."; break;
+            default: cout << "Opción invalida."; break;
         }
 
     } while(opcion != 3);
@@ -360,11 +360,11 @@ void menuMantenimiento() {
         cout << "\n========= MENU DE REPORTES =========" << endl;
         cout << "1. Artista más escuchado" << endl;
         cout << "2. Suscriptor que más escuchó canciones" << endl;
-        cout << "3. Canción más escuchada" << endl;
+        cout << "3. Cancion más escuchada" << endl;
         cout << "4. Cantidad de accesos por suscriptor" << endl;
         cout << "5. Suscriptores dados de baja" << endl;
-        cout << "6. Volver al menú anterior" << endl;
-        cout << "Seleccione una opción: ";
+        cout << "6. Volver al menu anterior" << endl;
+        cout << "Seleccione una opcion: ";
         cin >> opcion;
 
         switch(opcion) {
@@ -374,7 +374,7 @@ void menuMantenimiento() {
             case 4: reporteCantidadAccesosPorSuscriptor(); break;
             case 5: reporteSuscriptoresDadosDeBaja(); break;
             case 6: cout << "Volviendo..." << endl; break;
-            default: cout << "Opción inválida." << endl;
+            default: cout << "Opción invalida." << endl;
         }
     } while (opcion != 6);
 }

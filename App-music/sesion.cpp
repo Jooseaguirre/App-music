@@ -25,7 +25,7 @@ bool Sesion::estaLogueado() {
 
  void Sesion::loginSuscriptor() {
     if (estaLogueado()) {
-        cout << "Ya hay una sesión iniciada con ID: " << getIdSuscriptorActual() << ". Cierre sesión antes de iniciar otra." << endl;
+        cout << "Ya hay una sesion iniciada con ID: " << getIdSuscriptorActual() << ". Cierre sesion antes de iniciar otra." << endl;
         return;
     }
 
@@ -40,7 +40,7 @@ bool Sesion::estaLogueado() {
 
     if (manager.existeSuscriptor(id)) {
         Sesion::iniciarSesion(id);
-        cout << "Sesión iniciada con ID: " << id << endl;
+        cout << "Sesion iniciada con ID: " << id << endl;
         return;
     }
 
@@ -89,7 +89,7 @@ bool Sesion::estaLogueado() {
 
 void Sesion::reproduccionCancion() {
     if (!Sesion::estaLogueado()) {
-        cout << "Debe iniciar sesión primero para reproducir una canción." << endl;
+        cout << "Debe iniciar sesion primero para reproducir una cancion." << endl;
         return;
     }
 
@@ -123,7 +123,7 @@ void Sesion::reproduccionCancion() {
     }
 
     if (!encontrada) {
-        cout << "Canción no encontrada." << endl;
+        cout << "Cancion no encontrada." << endl;
         return;
     }
 

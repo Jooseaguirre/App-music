@@ -620,7 +620,7 @@
 	"cancion.h"
 	<string>
 
-1749514284 source:e:\appmusic\app-music\artista.cpp
+1749736273 source:e:\appmusic\app-music\artista.cpp
 	"artista.h"
 	<iostream>
 	<cstring>
@@ -654,7 +654,7 @@
 1749514284 source:e:\appmusic\app-music\cancionarchivo.cpp
 	"cancionarchivo.h"
 
-1749657925 source:e:\appmusic\app-music\cancionmanager.cpp
+1749737453 source:e:\appmusic\app-music\cancionmanager.cpp
 	<iostream>
 	<cstring>
 	"cancionManager.h"
@@ -674,7 +674,7 @@
 
 1749598377 e:\appmusic\app-music\menu.h
 
-1749606637 source:e:\appmusic\app-music\menu.cpp
+1749747302 source:e:\appmusic\app-music\menu.cpp
 	<iostream>
 	<cstdlib>
 	"menu.h"
@@ -695,7 +695,7 @@
 	"reportesmanager.h"
 	"artistamanager.h"
 
-1749604438 source:e:\appmusic\app-music\suscriptor.cpp
+1749734218 source:e:\appmusic\app-music\suscriptor.cpp
 	<cstring>
 	"suscriptor.h"
 	<string>
@@ -740,7 +740,7 @@
 
 1749593714 e:\appmusic\app-music\reportes.h
 
-1749607313 source:e:\appmusic\app-music\sesion.cpp
+1749746637 source:e:\appmusic\app-music\sesion.cpp
 	"sesion.h"
 	"suscriptormanager.h"
 	"suscriptorarchivo.h"
