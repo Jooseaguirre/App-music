@@ -1,7 +1,7 @@
 #include "suscriptorarchivo.h"
 
 SuscriptorArchivo::SuscriptorArchivo(){
-    _nombreArchivo = "suscriptor.dat";
+    _nombreArchivo = "suscriptores.dat";
 }
 
 SuscriptorArchivo::SuscriptorArchivo(std::string nombreArchivo){
@@ -79,4 +79,20 @@ int posicion = 0;
     fclose(pFile);
     return -1;
 }
+}
+
+
+Suscriptor SuscriptorArchivo::buscarPorId(int id) {
+    Suscriptor reg;
+    int cantidad = getCantidadRegistros();
+    for (int i = 0; i < cantidad; i++) {
+        reg = leer(i);
+        if (reg.getIdSuscriptor() == id) {
+            return reg;
+        }
+    }
+
+    Suscriptor noEncontrado;
+    noEncontrado.setIdSuscriptor(-1);
+    return noEncontrado;
 }

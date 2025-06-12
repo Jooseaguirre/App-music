@@ -9,4 +9,5 @@ public:
     void eliminarSuscriptor();
     void mostrarCantidadSuscriptores();
     void listarTodos();
+    bool existeSuscriptor(int id);
 };

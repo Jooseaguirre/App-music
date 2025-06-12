@@ -15,4 +15,5 @@ public:
     bool guardar(Suscriptor reg);
     bool guardar(Suscriptor reg, int pos);
     int buscar(const std::string& dniBuscado);
+    Suscriptor buscarPorId(int id);
     };

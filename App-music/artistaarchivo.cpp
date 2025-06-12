@@ -46,3 +46,53 @@ int ArtistaArchivo::getCantidadRegistros(){
     fclose(p);
     return tam / sizeof(Artista);
 }
+
+int ArtistaArchivo::buscarIdPorNombre(const std::string& nombre) {
+    int total = getCantidadRegistros();
+    for (int i = 0; i < total; i++) {
+        Artista a = leer(i);
+        if (a.getNombre() == nombre && a.getEstado()) {
+            return a.getId();
+        }
+    }
+    return -1;
+}
+
+
+bool ArtistaArchivo::existePorId(int id) {
+    int total = getCantidadRegistros();
+    for (int i = 0; i < total; i++) {
+        Artista a = leer(i);
+        if (a.getId() == id && a.getEstado()) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+Artista ArtistaArchivo::leerPorId(int id) {
+    int total = getCantidadRegistros();
+    for (int i = 0; i < total; i++) {
+        Artista a = leer(i);
+        if (a.getId() == id) {
+            return a;
+        }
+    }
+    return Artista();
+}
+
+
+int ArtistaArchivo::getMaxId() {
+    int maxId = 0;
+    int total = getCantidadRegistros();
+
+    for (int i = 0; i < total; i++) {
+        Artista a = leer(i);
+        if (a.getId() > maxId) {
+            maxId = a.getId();
+        }
+    }
+
+    return maxId;
+}

@@ -9,3 +9,6 @@ void menuReportes();
 void menuArtistas();
 void menuAcceso();
 void menuArtistasPorCancion();
+void menuLogin();
+void menuUsuario();
+void menuAdministrador();

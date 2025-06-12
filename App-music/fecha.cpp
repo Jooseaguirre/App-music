@@ -12,19 +12,17 @@ Fecha::Fecha() {
 }
 
 Fecha::Fecha(int d, int m, int a, int h, int mini) {
-    dia = d;
-    mes = m;
-    anio = a;
-    hora = h;
-    minuto = mini;
+    setDia(d);
+    setMes(m);
+    setAnio(a);
+    setHora(h);
+    setMinuto(mini);
 }
 
-
-void Fecha::cargar(){
-
+void Fecha::cargar() {
     int d, m, a, h, mini;
 
-    do{
+    do {
         cout << "Ingrese dia (1-31): ";
         cin >> d;
     } while (d < 1 || d > 31);
@@ -49,15 +47,29 @@ void Fecha::cargar(){
         cin >> mini;
     } while (mini < 0 || mini > 59);
 
-    dia = d;
-    mes = m;
-    anio = a;
-    hora = h;
-    minuto = mini;
+    setDia(d);
+    setMes(m);
+    setAnio(a);
+    setHora(h);
+    setMinuto(mini);
 }
 
 void Fecha::mostrar() {
     cout << dia << "/" << mes << "/" << anio << " - "
-    << (hora < 10 ? "0" : "" ) << hora << " : "
-    << (minuto < 10 ? "0" : "") << minuto << endl;
+         << (hora < 10 ? "0" : "") << hora << " : "
+         << (minuto < 10 ? "0" : "") << minuto << endl;
 }
+
+// Getters
+int Fecha::getDia() const { return dia; }
+int Fecha::getMes() const { return mes; }
+int Fecha::getAnio() const { return anio; }
+int Fecha::getHora() const { return hora; }
+int Fecha::getMinuto() const { return minuto; }
+
+// Setters
+void Fecha::setDia(int d) { if (d >= 1 && d <= 31) dia = d; }
+void Fecha::setMes(int m) { if (m >= 1 && m <= 12) mes = m; }
+void Fecha::setAnio(int a) { if (a >= 1900 && a <= 2100) anio = a; }
+void Fecha::setHora(int h) { if (h >= 0 && h <= 23) hora = h; }
+void Fecha::setMinuto(int m) { if (m >= 0 && m <= 59) minuto = m; }

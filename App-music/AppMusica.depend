@@ -580,3 +580,186 @@
 	"suscriptormanager.h"
 	"fecha.h"
 
+1749514284 source:e:\appmusic\app-music\acceso.cpp
+	<cstring>
+	"acceso.h"
+	<string>
+
+1749514284 e:\appmusic\app-music\acceso.h
+	"fecha.h"
+
+1749734007 e:\appmusic\app-music\fecha.h
+	<iostream>
+
+1749514284 source:e:\appmusic\app-music\accesoarchivo.cpp
+	"accesoarchivo.h"
+
+1749514284 e:\appmusic\app-music\accesoarchivo.h
+	"acceso.h"
+	<string>
+
+1749651886 source:e:\appmusic\app-music\accesomanager.cpp
+	"AccesoManager.h"
+	"Sesion.h"
+	"AccesoArchivo.h"
+	"Fecha.h"
+	"CancionArchivo.h"
+	"SuscriptorArchivo.h"
+	"cancionmanager.h"
+	<iostream>
+
+1749607285 e:\appmusic\app-music\accesomanager.h
+	<string>
+
+1749514284 e:\appmusic\app-music\cancion.h
+	"fecha.h"
+
+1749597799 e:\appmusic\app-music\cancionmanager.h
+
+1749514284 e:\appmusic\app-music\cancionarchivo.h
+	"cancion.h"
+	<string>
+
+1749514284 source:e:\appmusic\app-music\artista.cpp
+	"artista.h"
+	<iostream>
+	<cstring>
+
+1749514284 e:\appmusic\app-music\artista.h
+	<string>
+
+1749605510 source:e:\appmusic\app-music\artistaarchivo.cpp
+	"artistaarchivo.h"
+	<cstdio>
+
+1749602754 e:\appmusic\app-music\artistaarchivo.h
+	<string>
+	"artista.h"
+
+1749514284 source:e:\appmusic\app-music\artistamanager.cpp
+	"artistamanager.h"
+	"artistaarchivo.h"
+	"artista.h"
+	<iostream>
+
+1749514284 e:\appmusic\app-music\artistamanager.h
+	"artista.h"
+	<string>
+
+1749514284 source:e:\appmusic\app-music\cancion.cpp
+	<cstring>
+	"cancion.h"
+	<string>
+
+1749514284 source:e:\appmusic\app-music\cancionarchivo.cpp
+	"cancionarchivo.h"
+
+1749657925 source:e:\appmusic\app-music\cancionmanager.cpp
+	<iostream>
+	<cstring>
+	"cancionManager.h"
+	"cancionarchivo.h"
+	"cancion.h"
+	"cancionxartista.h"
+	"cancionxartistaarchivo.h"
+	"artistaarchivo.h"
+
+1749734038 source:e:\appmusic\app-music\fecha.cpp
+	<iostream>
+	"fecha.h"
+
+1749514284 source:e:\appmusic\app-music\main.cpp
+	<iostream>
+	"menu.h"
+
+1749598377 e:\appmusic\app-music\menu.h
+
+1749606637 source:e:\appmusic\app-music\menu.cpp
+	<iostream>
+	<cstdlib>
+	"menu.h"
+	"cancionmanager.h"
+	"suscriptormanager.h"
+	"accesomanager.h"
+	"artistamanager.h"
+	"backup.h"
+	"reportes.h"
+	"sesion.h"
+
+1749596557 e:\appmusic\app-music\suscriptormanager.h
+
+1749514284 e:\appmusic\app-music\reportesmanager.h
+
+1749514284 source:e:\appmusic\app-music\reportesmanager.cpp
+	<iostream>
+	"reportesmanager.h"
+	"artistamanager.h"
+
+1749604438 source:e:\appmusic\app-music\suscriptor.cpp
+	<cstring>
+	"suscriptor.h"
+	<string>
+	"fecha.h"
+	<cstdio>
+
+1749604438 e:\appmusic\app-music\suscriptor.h
+	<string>
+	<iostream>
+	"fecha.h"
+
+1749653548 source:e:\appmusic\app-music\suscriptorarchivo.cpp
+	"suscriptorarchivo.h"
+
+1749596621 e:\appmusic\app-music\suscriptorarchivo.h
+	<string>
+	"suscriptor.h"
+
+1749596575 source:e:\appmusic\app-music\suscriptormanager.cpp
+	<iostream>
+	<cstring>
+	"suscriptor.h"
+	"suscriptorarchivo.h"
+	"suscriptormanager.h"
+	"fecha.h"
+
+1749591650 source:e:\appmusic\app-music\backup.cpp
+	<iostream>
+	<cstdio>
+	"suscriptor.h"
+	"backup.h"
+
+1749591604 e:\appmusic\app-music\backup.h
+
+1749655592 source:e:\appmusic\app-music\cancionxartista.cpp
+	"CancionXArtista.h"
+	<cstring>
+
+1749600396 e:\appmusic\app-music\cancionxartista.h
+	<string>
+	<iostream>
+
+1749593714 e:\appmusic\app-music\reportes.h
+
+1749607313 source:e:\appmusic\app-music\sesion.cpp
+	"sesion.h"
+	"suscriptormanager.h"
+	"suscriptorarchivo.h"
+	"cancionarchivo.h"
+	"accesomanager.h"
+
+1749606556 e:\appmusic\app-music\sesion.h
+
+1749596815 source:e:\appmusic\app-music\cancionxartistaarchivo.cpp
+	"cancionxartista.h"
+	"cancionxartistaarchivo.h"
+	<cstdio>
+
+1749594902 e:\appmusic\app-music\cancionxartistaarchivo.h
+	"CancionXArtista.h"
+	<string>
+
+1749597512 source:e:\appmusic\app-music\reportes.cpp
+	<iostream>
+	"reportes.h"
+	"artistamanager.h"
+

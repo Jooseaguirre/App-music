@@ -85,7 +85,8 @@ std::string Suscriptor::toCSV() {
     char buffer[300];
     snprintf(buffer, sizeof(buffer), "%d,%s,%s,%s,%s,%s,%02d/%02d/%04d %02d:%02d",
              _idSuscriptor, _dni, _nombre, _apellido, _telefono, _email,
-             _fechaNacimiento.dia, _fechaNacimiento.mes, _fechaNacimiento.anio,
-             _fechaNacimiento.hora, _fechaNacimiento.minuto, _activo ? "ACTIVO" : "INACTIVO");
+             _fechaNacimiento.getDia(), _fechaNacimiento.getMes(), _fechaNacimiento.getAnio(),
+             _fechaNacimiento.getHora(), _fechaNacimiento.getMinuto(), _activo ? "ACTIVO" : "INACTIVO");
     return std::string(buffer);
 }
+

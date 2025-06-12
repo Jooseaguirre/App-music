@@ -11,8 +11,12 @@ public:
 
     bool guardar(Artista reg);
     bool guardar(Artista reg, int pos);
+    bool existePorId(int id);
 
     Artista leer(int pos);
 
     int getCantidadRegistros();
+    int buscarIdPorNombre(const std::string& nombre);
+     int getMaxId();
+    Artista leerPorId(int id);
 };

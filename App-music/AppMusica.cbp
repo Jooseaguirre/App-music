@@ -32,7 +32,6 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Reportesmanager.cpp" />
 		<Unit filename="acceso.cpp" />
 		<Unit filename="acceso.h" />
 		<Unit filename="accesoarchivo.cpp" />
@@ -45,18 +44,27 @@
 		<Unit filename="artistaarchivo.h" />
 		<Unit filename="artistamanager.cpp" />
 		<Unit filename="artistamanager.h" />
+		<Unit filename="backup.cpp" />
+		<Unit filename="backup.h" />
 		<Unit filename="cancion.cpp" />
 		<Unit filename="cancion.h" />
 		<Unit filename="cancionarchivo.cpp" />
 		<Unit filename="cancionarchivo.h" />
 		<Unit filename="cancionmanager.cpp" />
 		<Unit filename="cancionmanager.h" />
+		<Unit filename="cancionxartista.cpp" />
+		<Unit filename="cancionxartista.h" />
+		<Unit filename="cancionxartistaarchivo.cpp" />
+		<Unit filename="cancionxartistaarchivo.h" />
 		<Unit filename="fecha.cpp" />
 		<Unit filename="fecha.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h" />
-		<Unit filename="reportesmanager.h" />
+		<Unit filename="reportes.cpp" />
+		<Unit filename="reportes.h" />
+		<Unit filename="sesion.cpp" />
+		<Unit filename="sesion.h" />
 		<Unit filename="suscriptor.cpp" />
 		<Unit filename="suscriptor.h" />
 		<Unit filename="suscriptorarchivo.cpp" />

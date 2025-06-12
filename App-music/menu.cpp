@@ -4,49 +4,166 @@
 #include "cancionmanager.h"
 #include "suscriptormanager.h"
 #include "accesomanager.h"
-#include "reportesmanager.h"
 #include "artistamanager.h"
+#include "backup.h"
+#include "reportes.h"
+#include "sesion.h"
 
 using namespace std;
 
 
-void menuPrincipal(){
+
+
+
+
+
+
+void menuPrincipal() {
     int opcion;
-    do{
+
+    do {
         cout << "\n======= MENU PRINCIPAL =======" << endl;
-        cout << "1. Menu Canciones" << endl;
-        cout << "2. Menu Artistas" << endl;
-        cout << "3. Menu Suscriptores" << endl;
-        cout << "4. Menu Accesos" << endl;
-        cout << "5. Mantenimiento" << endl;
-        cout << "6. Reportes" << endl;
-        cout << "7. Salir" << endl;
+        cout << "1. Menu Usuario" << endl;
+        cout << "2. Menu Administrador" << endl;
+        cout << "3. Salir" << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcion;
 
-        switch(opcion){
-            case 1: menuCanciones();
-            break;
-            case 2: menuArtistas();
-            break;
-            case 3: menuSuscriptores();
-            break;
-            case 4: menuAcceso();
-            break;
-            /*case 5: menuMantenimiento();
-            break;*/
-            case 6: menuReportes();
-            break;
-            case 7: cout << "Saliendo del programa..." << endl;
-            return;
-            break;
-            default: cout << "Opcion invalida. Intente otra vez." << endl;
+        switch(opcion) {
+            case 1:
+                menuUsuario();
+                break;
+            case 2:
+                menuAdministrador();
+                break;
+            case 3:
+                cout << "Saliendo del programa..." << endl;
+                return;
+            default:
+                cout << "Opcion invalida. Intente otra vez." << endl;
+        }
+    } while (opcion != 3);
+}
+
+void menuUsuario() {
+    int opcion;
+
+    do {
+        cout << "\n======= MENU USUARIO =======" << endl;
+        cout << "1. Menu Login" << endl;
+        cout << "2. Reproducir Canción" << endl;
+        cout << "3. Menu Reportes" << endl;
+        cout << "4. Volver al menú principal" << endl;
+        cout << "Seleccione una opcion: ";
+        cin >> opcion;
+
+        switch(opcion) {
+            case 1:
+                menuLogin();
+                break;
+           case 2:
+                Sesion::reproduccionCancion();
+                break;
+          /*  case 3:
+                menuReportes();
+                break;*/
+            case 4:
+                cout << "Volviendo al menú principal..." << endl;
+                return;
+            default:
+                cout << "Opcion invalida. Intente otra vez." << endl;
+        }
+    } while (opcion != 4);
+}
+
+void menuAdministrador() {
+    int opcion;
+
+    do {
+        cout << "\n======= MENU ADMINISTRADOR =======" << endl;
+        cout << "1. Menu Canciones" << endl;
+        cout << "2. Menu Suscriptores" << endl;
+        cout << "3. Menu Artistas" << endl;
+        cout << "4. Menu Accesos" << endl;
+        cout << "5. Mantenimiento" << endl;
+        cout << "6. Volver al menú principal" << endl;
+        cout << "Seleccione una opcion: ";
+        cin >> opcion;
+
+        switch(opcion) {
+            case 1:
+                menuCanciones();
+                break;
+            case 2:
+                menuSuscriptores();
+                break;
+            case 3:
+                menuArtistas();
+                break;
+            case 4:
+                menuAcceso();
+                break;
+            case 5:
+                menuMantenimiento();
+                break;
+            case 6:
+                cout << "Volviendo al menú principal..." << endl;
+                return;
+            default:
+                cout << "Opcion invalida. Intente otra vez." << endl;
+        }
+    } while (opcion != 6);
+}
+
+
+    void menuLogin() {
+    SuscriptorManager sManager;
+    int opcion;
+
+    do {
+        cout << "\n===== MENU LOGIN =====" << endl;
+        cout << "1. Iniciar sesión" << endl;
+        cout << "2. Cerrar sesión" << endl;
+        cout << "3. Mostrar ID suscriptor logueado" << endl;
+        cout << "4. Volver al menú principal" << endl;
+        cout << "Seleccione una opcion: ";
+        cin >> opcion;
+
+        switch(opcion) {
+            case 1: {
+                Sesion::loginSuscriptor();
+                break;
+
+            }
+            case 2:
+                Sesion::cerrarSesion();
+                cout << "Sesión cerrada." << endl;
+                break;
+            case 3:
+                if (Sesion::estaLogueado()) {
+                    cout << "Suscriptor logueado: " << Sesion::getIdSuscriptorActual() << endl;
+                } else {
+                    cout << "No hay ningún suscriptor logueado." << endl;
+                }
+                break;
+            case 4:
+                cout << "Volviendo al menú principal..." << endl;
+                return;
+            default:
+                cout << "Opcion inválida, intente nuevamente." << endl;
         }
 
-        }while (opcion != 7);
+    } while (opcion != 4);
+}
 
 
-    }
+
+
+
+
+
+
+
 
 
 void menuCanciones(){
@@ -213,71 +330,53 @@ void menuAcceso() {
         } while (opcionAcceso !=3);
 }
 
-/* void menuMantenimiento() {
-    BackupManager bkManager;
-    int opcionMantenimiento;
 
-    do{
 
-        cout << "****************** MENÚ MANTENIMIENTO ******************" << endl;
-        cout << "1. Realizar Backup" << endl;
-        cout << "2. Recuperar desde Backup" << endl;
-        cout << "3. Salir al menú principal" << endl;
-        cout << "Seleccione una opción (1-2): ";
-        cin >> opcionMantenimiento;
 
-        switch(opcionMantenimiento){
-            case 1:
-                bkManager.realizarBackup();
-                break;
-            case 2:
-                bkManager.recuperDatos();
-                break;
-            case 3:
-                cout << "Saliendo del programa..." << endl;
-                return;
-            default:
-                cout << "Opcion invalida, intente de nuevo." << endl;
-            }
-            cout << endl << endl;
+void menuMantenimiento() {
+    int opcion;
+    do {
+        cout << "\n====== MANTENIMIENTO ======" << endl;
+        cout << "1. Backup de suscriptores" << endl;
+        cout << "2. Restaurar backup de suscriptores" << endl;
+        cout << "3. Volver" << endl;
+        cout << "Seleccione una opción: ";
+        cin >> opcion;
 
-            } while (opcionMantenimiento != 2);
+        switch(opcion) {
+            case 1: hacerBackupSuscriptores(); break;
+            case 2: recuperarBackupSuscriptores(); break;
+            case 3: cout << "Volviendo al menú anterior..."; break;
+            default: cout << "Opción inválida."; break;
+        }
 
-            }
+    } while(opcion != 3);
+}
+
+
+/*void menuReportes() {
+    int opcion;
+    do {
+        cout << "\n========= MENU DE REPORTES =========" << endl;
+        cout << "1. Artista más escuchado" << endl;
+        cout << "2. Suscriptor que más escuchó canciones" << endl;
+        cout << "3. Canción más escuchada" << endl;
+        cout << "4. Cantidad de accesos por suscriptor" << endl;
+        cout << "5. Suscriptores dados de baja" << endl;
+        cout << "6. Volver al menú anterior" << endl;
+        cout << "Seleccione una opción: ";
+        cin >> opcion;
+
+        switch(opcion) {
+            case 1: reporteArtistaMasEscuchado(); break;
+            case 2: reporteSuscriptorMasActivo(); break;
+            case 3: reporteCancionMasEscuchada(); break;
+            case 4: reporteCantidadAccesosPorSuscriptor(); break;
+            case 5: reporteSuscriptoresDadosDeBaja(); break;
+            case 6: cout << "Volviendo..." << endl; break;
+            default: cout << "Opción inválida." << endl;
+        }
+    } while (opcion != 6);
+}
 */
 
-
-void menuReportes() {
-    ReportesManager rManager;
-    int opcionReporte;
-
-
-    do{
-
-        cout << "****************** MENU REPORTES ******************" << endl;
-        cout << "1. Artista mas escuchado" << endl;
-        cout << "2. Usuario que mas horas escucho" << endl;
-        cout << "0. Salir al menu principal" << endl;
-        cout << "Seleccione una opcion: ";
-        cin >> opcionReporte;
-
-        switch(opcionReporte){
-            case 1:
-                rManager.artistaMasEscuchado();
-                break;
-            case 2:
-                rManager.usuarioMasEscuchado();
-                break;
-            case 0:
-                cout << "Saliendo del programa..." << endl;
-                return;
-                break;
-            default:
-                cout << "Opcion invalida, intente de nuevo." << endl;
-
-            }
-            cout << endl << endl;
-
-            } while(opcionReporte != 0);
-
-        }

@@ -187,3 +187,9 @@ if (posicion >= 0){
         }
     }
 }
+
+
+bool SuscriptorManager::existeSuscriptor(int id) {
+    SuscriptorArchivo archivo;
+    return archivo.buscarPorId(id).getIdSuscriptor() != -1;
+}

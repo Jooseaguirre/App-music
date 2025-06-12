@@ -1,80 +1,104 @@
 #include "AccesoManager.h"
-#include "cancionarchivo.h"
+#include "Sesion.h"
+#include "AccesoArchivo.h"
+#include "Fecha.h"
+#include "CancionArchivo.h"
+#include "SuscriptorArchivo.h"
+#include "cancionmanager.h"
 #include <iostream>
-#include <cstdio>
-#include <cstring>
-
 using namespace std;
 
-struct RegistroAcceso {
-    char usuario[30];
-    char contrasena[30];
-    int idCancion;
-};
-
 AccesoManager::AccesoManager() {
-    _nombreArchivo = "accesos.dat";
-}
 
-AccesoManager::AccesoManager(const std::string& nombreArchivo) {
-    _nombreArchivo = nombreArchivo;
 }
 
 void AccesoManager::cargarAcceso() {
-    RegistroAcceso reg;
-
-    cout << "Ingrese usuario: ";
-    cin.ignore();
-    cin.getline(reg.usuario, 30);
-
-    cout << "Ingrese contrasena: ";
-    cin.getline(reg.contrasena, 30);
+    int idSuscriptor = Sesion::getIdSuscriptorActual();
+    if (idSuscriptor == -1) {
+        cout << "No hay un suscriptor logueado." << endl;
+        return;
+    }
 
     CancionManager cManager;
     cManager.listarTodas();
 
-    cout << "Ingrese el ID de la cancion reproducida: ";
-    cin >> reg.idCancion;
-    cin.ignore();
+    int idCancion;
+    cout << "Ingrese el ID de la canción que desea reproducir: ";
+    cin >> idCancion;
 
-    FILE* pFile = fopen(_nombreArchivo.c_str(), "ab");
-    if (pFile == nullptr) {
-        cout << "Error al abrir archivo." << endl;
+    CancionArchivo cArchivo;
+    Cancion cancion = cArchivo.buscarPorId(idCancion);
+    if (cancion.getIdCancion() == -1) {
+        cout << "ID de canción inválido." << endl;
         return;
     }
 
-    if (fwrite(&reg, sizeof(RegistroAcceso), 1, pFile) == 1) {
+    Fecha fechaAcceso;
+    fechaAcceso.cargar();
+
+    Acceso acceso(idSuscriptor, idCancion, fechaAcceso);
+
+    AccesoArchivo aArchivo;
+    if (aArchivo.guardar(acceso)) {
         cout << "Acceso registrado correctamente." << endl;
     } else {
         cout << "Error al guardar el acceso." << endl;
     }
-
-    fclose(pFile);
 }
 
 void AccesoManager::mostrarAccesos() {
-    FILE* pFile = fopen(_nombreArchivo.c_str(), "rb");
-    if (pFile == nullptr) {
-        cout << "No se encontraron accesos registrados." << endl;
+    AccesoArchivo archivo;
+    int cantidad = archivo.getCantidadRegistros();
+
+    if (cantidad == 0) {
+        cout << "No hay accesos registrados." << endl;
         return;
     }
 
+    SuscriptorArchivo sArchivo;
     CancionArchivo cArchivo;
-    RegistroAcceso reg;
-    cout << "----- Lista de accesos -----" << endl;
-    while (fread(&reg, sizeof(RegistroAcceso), 1, pFile) == 1) {
-        cout << "Usuario: " << reg.usuario << endl;
-        cout << "Contrasena: " << reg.contrasena << endl;
 
-        Cancion cancion = cArchivo.buscarPorId(reg.idCancion);
-        if (cancion.getIdCancion() != -1) {
-            cout << "Cancion reproducida: " << cancion.getNombre() << endl;
+    cout << "----- LISTA DE ACCESOS -----" << endl;
+    for (int i = 0; i < cantidad; i++) {
+        Acceso acceso = archivo.leer(i);
+
+        Suscriptor s = sArchivo.buscarPorId(acceso.getIdSuscriptor());
+        Cancion c = cArchivo.buscarPorId(acceso.getIdCancion());
+
+        cout << "Suscriptor: ";
+        if (s.getIdSuscriptor() != -1) {
+            cout << s.getNombre() << " " << s.getApellido();
         } else {
-            cout << "Cancion reproducida ID " << reg.idCancion << " no encontrada." << endl;
+            cout << "ID " << acceso.getIdSuscriptor() << " (no encontrado)";
         }
+        cout << endl;
 
-        cout << "---------------------------" << endl;
+        cout << "Canción: ";
+        if (c.getIdCancion() != -1) {
+            cout << c.getNombre();
+        } else {
+            cout << "ID " << acceso.getIdCancion() << " (no encontrada)";
+        }
+        cout << endl;
+
+        cout << "Fecha: ";
+        acceso.getFechaAcceso().mostrar();
+
+        cout << "-----------------------------" << endl;
     }
+}
 
-    fclose(pFile);
+
+void AccesoManager::cargarAccesoAutomatico(int idSuscriptor, int idCancion) {
+    Fecha fechaAcceso;
+    fechaAcceso.cargar();
+
+    Acceso acceso(idSuscriptor, idCancion, fechaAcceso);
+
+    AccesoArchivo aArchivo;
+    if (aArchivo.guardar(acceso)) {
+        cout << "Acceso registrado correctamente." << endl;
+    } else {
+        cout << "Error al guardar el acceso." << endl;
+    }
 }
