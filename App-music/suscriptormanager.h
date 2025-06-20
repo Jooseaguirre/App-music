@@ -1,3 +1,4 @@
+#include <string>
 #pragma once
 
 
@@ -10,4 +11,7 @@ public:
     void mostrarCantidadSuscriptores();
     void listarTodos();
     bool existeSuscriptor(int id);
+    bool darDeAltaSuscriptor();
+    void buscarSuscriptorPorId();
+
 };

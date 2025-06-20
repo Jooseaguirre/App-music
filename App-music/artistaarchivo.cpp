@@ -96,3 +96,15 @@ int ArtistaArchivo::getMaxId() {
 
     return maxId;
 }
+
+
+int ArtistaArchivo::buscarPosicionPorId(int id) {
+    int cantidad = getCantidadRegistros();
+    for (int i = 0; i < cantidad; i++) {
+        Artista art = leer(i);
+        if (art.getId() == id) {
+            return i;
+        }
+    }
+    return -1;
+}

@@ -23,12 +23,12 @@ void ArtistaManager::listarArtistas() {
 
     for (int i = 0; i < total; i++) {
         Artista art = archivo.leer(i);
-        if (art.getEstado()) {
-            art.mostrar();
-        }
+
+
+        cout << "ID: " << art.getId() << " - Nombre: " << art.getNombre()
+             << " [" << (art.getEstado() ? "Activo" : "Inactivo") << "]" << endl;
     }
 }
-
 void ArtistaManager::buscarArtistaPorId(int id) {
     ArtistaArchivo archivo;
     int total = archivo.getCantidadRegistros();
@@ -85,4 +85,18 @@ Artista ArtistaManager::leerRegistro(int pos) {
     fread(&obj, sizeof(Artista), 1, pFile);
     fclose(pFile);
     return obj;
+}
+
+
+bool ArtistaManager::darDeAltaArtista(int id) {
+    ArtistaArchivo archivo;
+    int pos = archivo.buscarPosicionPorId(id);
+
+    if (pos == -1) return false;
+
+    Artista art = archivo.leer(pos);
+    if (art.getEstado()) return false;
+
+    art.setEstado(true);
+    return archivo.guardar(art, pos);
 }

@@ -8,6 +8,7 @@ public:
     void listarArtistas();
     void buscarArtistaPorId(int id);
     bool darDeBajaArtista(int id);
+    bool darDeAltaArtista(int id);
 
     std::string obtenerNombrePorId(int id);
     int getCantidadRegistros();

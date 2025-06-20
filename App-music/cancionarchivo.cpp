@@ -82,3 +82,13 @@ Cancion CancionArchivo::buscarPorId(int id) {
     return reg;
 }
 
+int CancionArchivo::buscarPosicionPorId(int id) {
+    int total = getCantidadRegistros();
+    for (int i = 0; i < total; i++) {
+        Cancion c = leer(i);
+        if (c.getIdCancion() == id) {
+            return i;
+        }
+    }
+    return -1;
+}

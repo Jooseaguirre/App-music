@@ -19,4 +19,5 @@ public:
     int buscarIdPorNombre(const std::string& nombre);
      int getMaxId();
     Artista leerPorId(int id);
+    int buscarPosicionPorId(int id);
 };

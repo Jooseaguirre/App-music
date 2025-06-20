@@ -13,4 +13,5 @@ public:
     bool guardar(CancionXArtista reg);
     CancionXArtista leer(int pos);
     int cantidadRegistros();
+    bool existeRelacion(int idCancion, int idArtista);
 };

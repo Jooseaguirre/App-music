@@ -23,25 +23,25 @@ bool Sesion::estaLogueado() {
 }
 
 
- void Sesion::loginSuscriptor() {
+bool Sesion::loginSuscriptor() {
     if (estaLogueado()) {
         cout << "Ya hay una sesion iniciada con ID: " << getIdSuscriptorActual() << ". Cierre sesion antes de iniciar otra." << endl;
-        return;
+        return true;
     }
-
 
     SuscriptorArchivo archivo;
     SuscriptorManager manager;
+    bool valido;
 
     int id;
-    cout << "Ingrese ID de suscriptor para iniciar sesión: ";
+    cout << "Ingrese ID de suscriptor para iniciar sesion: ";
     cin >> id;
     cin.ignore();
 
     if (manager.existeSuscriptor(id)) {
         Sesion::iniciarSesion(id);
         cout << "Sesion iniciada con ID: " << id << endl;
-        return;
+        return true;
     }
 
     cout << "No existe suscriptor con ese ID. ¿Desea crearlo? (s/n): ";
@@ -62,8 +62,19 @@ bool Sesion::estaLogueado() {
         getline(cin, nombre);
         cout << "Ingrese apellido: ";
         getline(cin, apellido);
-        cout << "Ingrese teléfono: ";
-        getline(cin, telefono);
+        do {
+            cout << "Ingrese telefono (solo numeros): ";
+            getline(cin, telefono);
+
+
+            for (int i = 0; telefono[i] != '\0'; i++) {
+            if (telefono[i] < '0' || telefono[i] > '9') {
+            valido = false;
+            cout << "Telefono invalido, solo numeros permitidos. Intente de nuevo." << endl;
+            break;
+        }
+    }
+} while (!valido);
         cout << "Ingrese email: ";
         getline(cin, email);
         cout << "Ingrese fecha de nacimiento: ";
@@ -80,12 +91,15 @@ bool Sesion::estaLogueado() {
         if (archivo.guardar(nuevo)) {
             Sesion::iniciarSesion(id);
             cout << "Suscriptor creado e ingresado con ID: " << id << endl;
+            return true;
         } else {
             cout << "Error al guardar el nuevo suscriptor." << endl;
+            return false;
         }
     }
-}
 
+    return false;
+}
 
 void Sesion::reproduccionCancion() {
     if (!Sesion::estaLogueado()) {

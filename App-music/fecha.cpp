@@ -1,5 +1,6 @@
 #include <iostream>
 #include "fecha.h"
+#include <ctime>
 
 using namespace std;
 
@@ -60,16 +61,31 @@ void Fecha::mostrar() {
          << (minuto < 10 ? "0" : "") << minuto << endl;
 }
 
-// Getters
+
 int Fecha::getDia() const { return dia; }
 int Fecha::getMes() const { return mes; }
 int Fecha::getAnio() const { return anio; }
 int Fecha::getHora() const { return hora; }
 int Fecha::getMinuto() const { return minuto; }
 
-// Setters
+
 void Fecha::setDia(int d) { if (d >= 1 && d <= 31) dia = d; }
 void Fecha::setMes(int m) { if (m >= 1 && m <= 12) mes = m; }
 void Fecha::setAnio(int a) { if (a >= 1900 && a <= 2100) anio = a; }
 void Fecha::setHora(int h) { if (h >= 0 && h <= 23) hora = h; }
 void Fecha::setMinuto(int m) { if (m >= 0 && m <= 59) minuto = m; }
+
+
+
+Fecha Fecha::obtenerFechaActual() {
+    time_t t = time(nullptr);
+    tm* now = localtime(&t);
+
+    return Fecha(
+        now->tm_mday,
+        now->tm_mon + 1,
+        now->tm_year + 1900,
+        now->tm_hour,
+        now->tm_min
+    );
+}

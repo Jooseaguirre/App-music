@@ -24,8 +24,7 @@ void CancionManager::cargarCancion() {
 
     s.setIdCancion(idMax + 1);
 
-    string nombre;
-    string autor;
+    string nombre, autor;
     Fecha f;
 
     cout << "Ingrese nombre de la cancion: ";
@@ -45,7 +44,6 @@ void CancionManager::cargarCancion() {
     ArtistaArchivo artistaArchivo;
     CancionXArtistaArchivo archivoRel;
 
-
     int idAutor = artistaArchivo.buscarIdPorNombre(autor);
     if (idAutor == -1) {
         cout << "El autor no está registrado como artista. ¿Desea crearlo? (s/n): ";
@@ -53,14 +51,11 @@ void CancionManager::cargarCancion() {
         cin >> op;
         cin.ignore();
         if (op == 's' || op == 'S') {
-
             idAutor = artistaArchivo.getCantidadRegistros() + 1;
-
             Artista nuevoArtista;
             nuevoArtista.setId(idAutor);
             nuevoArtista.setNombre(autor);
             nuevoArtista.setEstado(true);
-
             if (artistaArchivo.guardar(nuevoArtista)) {
                 cout << "Autor creado exitosamente como artista con ID " << idAutor << "." << endl;
             } else {
@@ -73,8 +68,7 @@ void CancionManager::cargarCancion() {
     if (cArchivo.guardar(s)) {
         cout << "Cancion guardada exitosamente." << endl;
 
-
-        if (idAutor != -1) {
+        if (idAutor != -1 && !archivoRel.existeRelacion(s.getIdCancion(), idAutor)) {
             CancionXArtista relAutor;
             relAutor.setIdCancion(s.getIdCancion());
             relAutor.setIdArtista(idAutor);
@@ -92,16 +86,14 @@ void CancionManager::cargarCancion() {
             string nombreArt;
             bool idValido = false;
 
-
-            int totalArtistas = artistaArchivo.getCantidadRegistros();
             cout << "Artistas disponibles (ID - Nombre): " << endl;
+            int totalArtistas = artistaArchivo.getCantidadRegistros();
             for (int i = 0; i < totalArtistas; i++) {
                 Artista a = artistaArchivo.leer(i);
                 if (a.getEstado()) {
                     cout << a.getId() << " - " << a.getNombre() << endl;
                 }
             }
-
 
             do {
                 cout << "Ingrese ID del artista que participo: ";
@@ -118,8 +110,6 @@ void CancionManager::cargarCancion() {
                     if (resp == 's' || resp == 'S') {
                         cout << "Ingrese nombre del nuevo artista: ";
                         getline(cin, nombreArt);
-
-
                         int nuevoId = artistaArchivo.getCantidadRegistros() + 1;
 
                         Artista nuevoArtista;
@@ -132,47 +122,30 @@ void CancionManager::cargarCancion() {
                             idValido = true;
                             idArtista = nuevoId;
                         } else {
-                            cout << "Error al crear artista. Intente nuevamente." << endl;
+                            cout << "Error al crear artista." << endl;
                         }
-                    } else {
-                        cout << "Intente con otro ID." << endl;
                     }
                 }
             } while (!idValido);
 
+            if (!archivoRel.existeRelacion(s.getIdCancion(), idArtista)) {
+                CancionXArtista rel;
+                rel.setIdCancion(s.getIdCancion());
+                rel.setIdArtista(idArtista);
+                rel.setEstado(true);
 
-            bool nombreValido = false;
-            while (!nombreValido) {
-                if (nombreArt[0] == '\0') {
-                    cout << "Ingrese nombre del artista que participo: ";
-                    getline(cin, nombreArt);
-                }
-
-                int idDesdeNombre = artistaArchivo.buscarIdPorNombre(nombreArt); //busco si existe ese nombre y traigo el id
-
-                if (idDesdeNombre != -1 && idDesdeNombre == idArtista) {
-                    nombreValido = true;
+                if (archivoRel.guardar(rel)) {
+                    cout << "Artista asociado correctamente." << endl;
                 } else {
-                    cout << "Nombre de artista no coincide con el ID ingresado o no existe. Intente nuevamente." << endl;
-                    nombreArt = ""; // lo dejo vacio asi lo pide de nuevo
+                    cout << "Error al guardar la asociación." << endl;
                 }
-            }
-
-            CancionXArtista rel;
-            rel.setIdCancion(s.getIdCancion());
-            rel.setIdArtista(idArtista);
-            rel.setEstado(true);
-
-            if (archivoRel.guardar(rel)) {
-                cout << "Artista asociado correctamente." << endl;
             } else {
-                cout << "Error al guardar la asociación." << endl;
+                cout << "Este artista ya está asociado a esta canción." << endl;
             }
 
             cout << "¿Agregar otro artista? (s/n): ";
             cin >> opcion;
             cin.ignore();
-
         } while (opcion == 's' || opcion == 'S');
 
     } else {
@@ -239,40 +212,96 @@ void CancionManager::listarTodas() {
 
     for (int i = 0; i < total; i++) {
         Cancion c = cArchivo.leer(i);
-        if (c.getIdCancion() != -1) {
-            cout << "ID: " << c.getIdCancion() << endl;
-            cout << "Nombre: " << c.getNombre() << endl;
-            cout << "Autor: " << c.getAutor() << endl;
 
-            Fecha f = c.getFechaDePublicacion();
-            cout << "Fecha de publicación: " << endl;
-            f.mostrar();
+        cout << "ID: " << c.getIdCancion() << endl;
+        cout << "Nombre: " << c.getNombre() << endl;
+        cout << "Autor: " << c.getAutor() << endl;
+        cout << "Estado: " << (c.getEstado() ? "Activa" : "Dada de baja") << endl;
 
+        Fecha f = c.getFechaDePublicacion();
+        cout << "Fecha de publicacion: ";
+        f.mostrar();
 
-            cout << "Artistas que participaron:" << endl;
-            int totalRel = relArchivo.cantidadRegistros();
-            bool tieneArtistas = false;
+        cout << "Artistas que participaron:" << endl;
+        int totalRel = relArchivo.cantidadRegistros();
+        bool tieneArtistas = false;
 
-            for (int j = 0; j < totalRel; j++) {
-                CancionXArtista rel = relArchivo.leer(j);
-                if (rel.getIdCancion() == c.getIdCancion() && rel.getEstado()) {
-                    Artista artista = artistaArchivo.leerPorId(rel.getIdArtista());
-                    if (artista.getEstado()) {
-                        cout << "  - ID: " << artista.getId() << endl;
-                        cout << " Nombre: " << artista.getNombre() << endl;
-                        tieneArtistas = true;
-                    }
+        for (int j = 0; j < totalRel; j++) {
+            CancionXArtista rel = relArchivo.leer(j);
+            if (rel.getIdCancion() == c.getIdCancion() && rel.getEstado()) {
+                Artista artista = artistaArchivo.leerPorId(rel.getIdArtista());
+                if (artista.getEstado()) {
+                    cout << "  - ID: " << artista.getId() << endl;
+                    cout << "    Nombre: " << artista.getNombre() << endl;
+                    tieneArtistas = true;
                 }
             }
-
-            if (!tieneArtistas) {
-                cout << "  (Ninguno)" << endl;
-            }
-
-            cout << "-----------------------------\n";
         }
+
+        if (!tieneArtistas) {
+            cout << "  (Ninguno)" << endl;
+        }
+
+        cout << "-----------------------------\n";
     }
 }
+
+
+void CancionManager::borrarCancion() {
+    int id;
+    cout << "ID de la cancion a dar de baja: ";
+    cin >> id;
+
+    CancionArchivo archivo;
+    int pos = archivo.buscarPosicionPorId(id);
+
+    if (pos == -1) {
+        cout << "No se encontro la cancion con ese ID." << endl;
+        return;
+    }
+
+    Cancion c = archivo.leer(pos);
+
+    if (!c.getEstado()) {
+        cout << "La cancion ya está dada de baja." << endl;
+        return;
+    }
+
+    c.setEstado(false);
+    if (archivo.guardar(c, pos)) {
+        cout << "Cancion dada de baja." << endl;
+    } else {
+        cout << "Error al modificar la cancion." << endl;
+    }
+}
+
+void CancionManager::darDeAltaCancion() {
+    int id;
+    cout << "ID de la cancion a recuperar: ";
+    cin >> id;
+
+    CancionArchivo archivo;
+    int pos = archivo.buscarPosicionPorId(id);
+
+    if (pos == -1) {
+        cout << "No se encontro la cancion con ese ID." << endl;
+        return;
+    }
+
+    Cancion c = archivo.leer(pos);
+    if (c.getEstado()) {
+        cout << "La cancion ya está activa." << endl;
+        return;
+    }
+
+    c.setEstado(true);
+    if (archivo.guardar(c, pos)) {
+        cout << "Cancion recuperada.";
+    } else {
+        cout << "Error al recuperar la cancion.";
+    }
+}
+
 
 void CancionManager::buscarPorId() {
     int id;
@@ -280,43 +309,45 @@ void CancionManager::buscarPorId() {
     cin >> id;
 
     CancionArchivo cArchivo;
-    int total = cArchivo.getCantidadRegistros();
+    CancionXArtistaArchivo relArchivo;
+    ArtistaArchivo artistaArchivo;
 
-    for (int i = 0; i < total; i++) {
-        Cancion c = cArchivo.leer(i);
-        if (c.getIdCancion() == id) {
-            cout << "ID: " << c.getIdCancion() << endl;
-            cout << "Nombre: " << c.getNombre() << endl;
-            cout << "Autor: " << c.getAutor() << endl;
-            Fecha f = c.getFechaDePublicacion();
-            cout << "Fecha de publicacion: " << endl;
-            f.mostrar();
-            return;
-        }
+    int pos = cArchivo.buscarPosicionPorId(id);
+    if (pos == -1) {
+        cout << "Cancion no encontrada." << endl;
+        return;
     }
 
-    cout << "Cancion no encontrada.";
-}
+    Cancion c = cArchivo.leer(pos);
 
-void CancionManager::borrarCancion() {
-    int id;
-    cout << "Ingrese el ID de la cancion a borrar: ";
-    cin >> id;
+    cout << "ID: " << c.getIdCancion() << endl;
+    cout << "Nombre: " << c.getNombre() << endl;
+    cout << "Autor: " << c.getAutor() << endl;
+    cout << "Estado: " << (c.getEstado() ? "Activa" : "Dada de baja") << endl;
 
-    CancionArchivo cArchivo;
-    int total = cArchivo.getCantidadRegistros();
+    Fecha f = c.getFechaDePublicacion();
+    cout << "Fecha de publicacion: ";
+    f.mostrar();
 
-    for (int i = 0; i < total; i++) {
-        Cancion c = cArchivo.leer(i);
-        if (c.getIdCancion() == id) {
-            c.setIdCancion(-1);
-            if (cArchivo.guardar(c, i)) {
-                cout << "Cancion borrada ";
-            } else {
-                cout << "Error al borrar la cancion ";
+    cout << "Artistas que participaron:" << endl;
+    int totalRel = relArchivo.cantidadRegistros();
+    bool tieneArtistas = false;
+
+    for (int i = 0; i < totalRel; i++) {
+        CancionXArtista rel = relArchivo.leer(i);
+        if (rel.getIdCancion() == c.getIdCancion() && rel.getEstado()) {
+            Artista artista = artistaArchivo.leerPorId(rel.getIdArtista());
+            if (artista.getEstado()) {
+                cout << "  - ID: " << artista.getId() << endl;
+                cout << "    Nombre: " << artista.getNombre() << endl;
+                tieneArtistas = true;
             }
-            return;
         }
     }
-    cout << "No se encontro una cancion con ese ID";
+
+    if (!tieneArtistas) {
+        cout << "  (Ninguno)" << endl;
+    }
+
+    cout << "-----------------------------\n";
 }

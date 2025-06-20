@@ -82,11 +82,14 @@ void Suscriptor::setActivo(bool activo) {
 
 
 std::string Suscriptor::toCSV() {
+    const char* estadoStr = _activo ? "ACTIVO" : "INACTIVO";
+
     char buffer[300];
-    snprintf(buffer, sizeof(buffer), "%d,%s,%s,%s,%s,%s,%02d/%02d/%04d %02d:%02d",
+    snprintf(buffer, sizeof(buffer), "%d,%s,%s,%s,%s,%s,%02d/%02d/%04d %02d:%02d,%s",
              _idSuscriptor, _dni, _nombre, _apellido, _telefono, _email,
              _fechaNacimiento.getDia(), _fechaNacimiento.getMes(), _fechaNacimiento.getAnio(),
-             _fechaNacimiento.getHora(), _fechaNacimiento.getMinuto(), _activo ? "ACTIVO" : "INACTIVO");
+             _fechaNacimiento.getHora(), _fechaNacimiento.getMinuto(),
+             estadoStr);
     return std::string(buffer);
 }
 

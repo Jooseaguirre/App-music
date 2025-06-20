@@ -7,7 +7,7 @@ private:
 public:
     static void iniciarSesion(int idSuscriptor);
     static void cerrarSesion();
-    static void loginSuscriptor();
+    static bool loginSuscriptor();
     static int getIdSuscriptorActual();
     static bool estaLogueado();
     static void reproduccionCancion();

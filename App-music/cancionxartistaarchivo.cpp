@@ -36,3 +36,16 @@ int CancionXArtistaArchivo::cantidadRegistros() {
     fclose(p);
     return bytes / sizeof(CancionXArtista);
 }
+
+bool CancionXArtistaArchivo::existeRelacion(int idCancion, int idArtista) {
+    int total = cantidadRegistros();
+    for (int i = 0; i < total; i++) {
+        CancionXArtista rel = leer(i);
+        if (rel.getIdCancion() == idCancion &&
+            rel.getIdArtista() == idArtista &&
+            rel.getEstado()) {
+            return true;
+        }
+    }
+    return false;
+}

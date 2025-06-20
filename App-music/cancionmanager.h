@@ -9,4 +9,6 @@ public:
     void listarTodas();
     void buscarPorId();
     void borrarCancion();
+    void darDeAltaCancion();
+
 };

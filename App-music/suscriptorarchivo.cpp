@@ -82,6 +82,18 @@ int posicion = 0;
 }
 
 
+int SuscriptorArchivo::buscarPosicionPorId(int id) {
+    int cantidad = getCantidadRegistros();
+    for (int i = 0; i < cantidad; i++) {
+        Suscriptor reg = leer(i);
+        if (reg.getIdSuscriptor() == id) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+
 Suscriptor SuscriptorArchivo::buscarPorId(int id) {
     Suscriptor reg;
     int cantidad = getCantidadRegistros();

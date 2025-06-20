@@ -14,6 +14,7 @@ void SuscriptorManager::cargarSuscriptor(){
 
     Suscriptor s;
     SuscriptorArchivo sArchivo;
+    bool  valido = true;
     int id = 0;
 
     SuscriptorArchivo arch;
@@ -44,8 +45,19 @@ getline(cin, nombre);
 cout << "Ingrese apellido: ";
 getline(cin, apellido);
 
-cout << "Ingrese telefono: ";
-getline(cin, telefono);
+do {
+    cout << "Ingrese telefono (solo numeros): ";
+    getline(cin, telefono);
+
+
+    for (int i = 0; telefono[i] != '\0'; i++) {
+        if (telefono[i] < '0' || telefono[i] > '9') {
+            valido = false;
+            cout << "Telefono invalido, solo numeros permitidos. Intente de nuevo." << endl;
+            break;
+        }
+    }
+} while (!valido);
 
 cout << "Ingrese email: ";
 getline(cin, email);
@@ -56,7 +68,7 @@ f.cargar();
 s.setDni(std::string(dni));
 s.setNombre(std::string(nombre));
 s.setApellido(std::string(apellido));
-s.setTelefono(std::string(telefono));
+s.setTelefono(telefono);
 s.setEmail(std::string(email));
 s.setFecha(f);
 
@@ -84,56 +96,64 @@ void SuscriptorManager::listarTodos(){
     Suscriptor s;
     int cantidad = sArchivo.getCantidadRegistros();
 
-    for (int i = 0; i < cantidad ; i++){
+    for (int i = 0; i < cantidad; i++) {
         s = sArchivo.leer(i);
-        cout << s.toCSV() << endl;
+
+        cout << "ID: " << s.getIdSuscriptor() << endl;
+        cout << "DNI: " << s.getDni() << endl;
+        cout << "Nombre: " << s.getNombre() << endl;
+        cout << "Apellido: " << s.getApellido() << endl;
+        cout << "Telefono: " << s.getTelefono() << endl;
+        cout << "Email: " << s.getEmail() << endl;
+
+        Fecha f = s.getFechaNacimiento();
+        cout << "Fecha de Nacimiento: ";
+        cout << f.getDia() << "/" << f.getMes() << "/" << f.getAnio();
+        cout << " " << f.getHora() << ":" << f.getMinuto() << endl;
+
+        cout << "Estado: " << (s.getActivo() ? "ACTIVO" : "INACTIVO") << endl;
+
+        cout << "-----------------------------" << endl;
     }
 }
 
 
 void SuscriptorManager::modificarSuscriptor(){
-Fecha nuevaFecha;
-std:: string dni;
-cout << "Ingrese el DNI del suscriptor a modificar: " << endl;
-cin >> dni;
+    Fecha nuevaFecha;
+    int id;
+    cout << "Ingrese el ID del suscriptor a modificar: ";
+    cin >> id;
 
-SuscriptorArchivo sArchivo;
-int posicion = sArchivo.buscar(dni);
+    SuscriptorArchivo sArchivo;
+    int posicion = sArchivo.buscarPosicionPorId(id);
+    if (posicion >= 0){
+        Suscriptor reg = sArchivo.leer(posicion);
 
-if (posicion >= 0){
-    Suscriptor reg = sArchivo.leer(posicion);
+        string nombre, apellido, telefono, email;
 
-    string nombre, apellido, telefono, email;
-    int dia, mes, anio;
+        cout << "Ingrese nuevo nombre: ";
+        cin.ignore();
+        getline(cin, nombre);
 
+        cout << "Ingrese nuevo apellido: ";
+        getline(cin, apellido);
 
-    cout << "Ingrese nuevo nombre: ";
-    cin.ignore();
-    getline(cin, nombre);
+        cout << "Ingrese nuevo telefono: ";
+        getline(cin, telefono);
 
-    cout << "Ingrese nuevo apellido: ";
-    getline(cin, apellido);
+        cout << "Ingrese nuevo email: ";
+        getline(cin, email);
 
-    cout << "Ingrese nuevo telefono: ";
-    getline(cin, telefono);
+        cout << "Ingrese nueva fecha de nacimiento: ";
+        nuevaFecha.cargar();
 
-    cout << "Ingrese nuevo email: ";
-    getline(cin, email);
+        reg.setNombre(nombre);
+        reg.setApellido(apellido);
+        reg.setTelefono(telefono);
+        reg.setEmail(email);
+        reg.setFecha(nuevaFecha);
 
-    cout << "Ingrese nueva fecha de nacimiento: ";
-    nuevaFecha.cargar();
-
-
-
-
-
-    reg.setNombre(nombre);
-    reg.setApellido(apellido);
-    reg.setTelefono(telefono);
-    reg.setEmail(email);
-    reg.setFecha(nuevaFecha);
-
-    if (sArchivo.guardar(reg, posicion))
+        if (sArchivo.guardar(reg, posicion))
         {
             cout << "Suscriptor modificado correctamente." << endl;
         }
@@ -145,51 +165,106 @@ if (posicion >= 0){
     else
     {
         if (posicion == -1) {
-            cout << "No existe el suscriptor." << endl;
+            cout << "No existe el suscriptor con ese ID." << endl;
         }
         else if (posicion == -2) {
             cout << "Error al abrir el archivo." << endl;
         }
     }
 }
-
-
-
 
 void SuscriptorManager::eliminarSuscriptor(){
-std:: string dni;
-cout << "Ingrese el DNI del suscriptor a eliminar: " << endl;
-cin >> dni;
+    int id;
+    cout << "Ingrese el ID del suscriptor a eliminar: " << endl;
+    cin >> id;
 
+    SuscriptorArchivo sArchivo;
+    int posicion = sArchivo.buscarPosicionPorId(id);
 
-SuscriptorArchivo sArchivo;
-int posicion = sArchivo.buscar(dni);
-
-if (posicion >= 0){
-    Suscriptor reg = sArchivo.leer(posicion);
-
-    reg.setActivo(false);
-    if(sArchivo.guardar(reg,posicion)){
-        cout << "Suscriptor dado de baja correctamente-" <<endl;
+    if (posicion >= 0){
+        Suscriptor reg = sArchivo.leer(posicion);
+        reg.setActivo(false);
+        if(sArchivo.guardar(reg,posicion)){
+            cout << "Suscriptor dado de baja correctamente." << endl;
+        }
+        else {
+            cout << "Error al dar de baja el suscriptor." << endl;
+        }
     }
     else {
-        cout << "Error al dar de baja el suscriptor." << endl;
+        cout << "No existe el suscriptor con ese ID." << endl;
     }
 }
-
-  else
-    {
-        if (posicion == -1) {
-            cout << "No existe el suscriptor." << endl;
-        }
-        else if (posicion == -2) {
-            cout << "Error al abrir el archivo." << endl;
-        }
-    }
-}
-
 
 bool SuscriptorManager::existeSuscriptor(int id) {
     SuscriptorArchivo archivo;
     return archivo.buscarPorId(id).getIdSuscriptor() != -1;
 }
+
+
+
+
+
+bool SuscriptorManager::darDeAltaSuscriptor() {
+    int id;
+    cout << "Ingrese el ID del suscriptor a dar de alta: ";
+    cin >> id;
+
+    SuscriptorArchivo archivo;
+    int total = archivo.getCantidadRegistros();
+
+    for (int i = 0; i < total; i++) {
+        Suscriptor s = archivo.leer(i);
+        if (s.getIdSuscriptor() == id) {
+            if (s.getActivo()) {
+                cout << "El suscriptor ya está activo." << endl;
+                return false;
+            }
+            s.setActivo(true);
+            if(archivo.guardar(s, i)) {
+                cout << "Suscriptor dado de alta correctamente." << endl;
+                return true;
+            } else {
+                cout << "Error al guardar el suscriptor." << endl;
+                return false;
+            }
+        }
+    }
+    cout << "No se encontró suscriptor con ese ID." << endl;
+    return false;
+}
+
+
+
+void SuscriptorManager::buscarSuscriptorPorId() {
+    int id;
+    cout << "Ingrese el ID del suscriptor a buscar: ";
+    cin >> id;
+
+    SuscriptorArchivo archivo;
+    int posicion = archivo.buscarPosicionPorId(id);
+
+    if (posicion >= 0) {
+        Suscriptor s = archivo.leer(posicion);
+
+        cout << "ID: " << s.getIdSuscriptor() << endl;
+        cout << "DNI: " << s.getDni() << endl;
+        cout << "Nombre: " << s.getNombre() << endl;
+        cout << "Apellido: " << s.getApellido() << endl;
+        cout << "Telefono: " << s.getTelefono() << endl;
+        cout << "Email: " << s.getEmail() << endl;
+
+        Fecha f = s.getFechaNacimiento();
+        cout << "Fecha de Nacimiento: ";
+        cout << f.getDia() << "/" << f.getMes() << "/" << f.getAnio();
+        cout << " " << f.getHora() << ":" << f.getMinuto() << endl;
+
+        cout << "Estado: " << (s.getActivo() ? "ACTIVO" : "INACTIVO") << endl;
+
+    } else {
+        cout << "No se encontró suscriptor con ese ID." << endl;
+    }
+}
+
+
+

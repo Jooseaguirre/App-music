@@ -31,6 +31,9 @@ public:
     void setAnio(int a);
     void setHora(int h);
     void setMinuto(int m);
+
+
+    static Fecha obtenerFechaActual();
 };
 
 #endif // FECHA_H_INCLUDED

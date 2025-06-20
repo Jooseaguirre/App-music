@@ -33,8 +33,7 @@ void AccesoManager::cargarAcceso() {
         return;
     }
 
-    Fecha fechaAcceso;
-    fechaAcceso.cargar();
+    Fecha fechaAcceso = Fecha::obtenerFechaActual();
 
     Acceso acceso(idSuscriptor, idCancion, fechaAcceso);
 
@@ -90,8 +89,7 @@ void AccesoManager::mostrarAccesos() {
 
 
 void AccesoManager::cargarAccesoAutomatico(int idSuscriptor, int idCancion) {
-    Fecha fechaAcceso;
-    fechaAcceso.cargar();
+    Fecha fechaAcceso = Fecha::obtenerFechaActual();
 
     Acceso acceso(idSuscriptor, idCancion, fechaAcceso);
 
@@ -100,5 +98,55 @@ void AccesoManager::cargarAccesoAutomatico(int idSuscriptor, int idCancion) {
         cout << "Acceso registrado correctamente." << endl;
     } else {
         cout << "Error al guardar el acceso." << endl;
+    }
+}
+
+
+void AccesoManager::mostrarAccesosPorIdSuscriptor() {
+    int idBuscar;
+    cout << "Ingrese ID del suscriptor para buscar accesos: ";
+    cin >> idBuscar;
+
+    AccesoArchivo archivo;
+    int cantidad = archivo.getCantidadRegistros();
+
+    SuscriptorArchivo sArchivo;
+    CancionArchivo cArchivo;
+
+    bool encontrado = false;
+
+    for (int i = 0; i < cantidad; i++) {
+        Acceso acceso = archivo.leer(i);
+        if (acceso.getIdSuscriptor() == idBuscar) {
+            encontrado = true;
+
+            Suscriptor s = sArchivo.buscarPorId(acceso.getIdSuscriptor());
+            Cancion c = cArchivo.buscarPorId(acceso.getIdCancion());
+
+            cout << "Suscriptor: ";
+            if (s.getIdSuscriptor() != -1) {
+                cout << s.getNombre() << " " << s.getApellido();
+            } else {
+                cout << "ID " << acceso.getIdSuscriptor() << " (no encontrado)";
+            }
+            cout << endl;
+
+            cout << "Canción: ";
+            if (c.getIdCancion() != -1) {
+                cout << c.getNombre();
+            } else {
+                cout << "ID " << acceso.getIdCancion() << " (no encontrada)";
+            }
+            cout << endl;
+
+            cout << "Fecha: ";
+            acceso.getFechaAcceso().mostrar();
+
+            cout << "-----------------------------" << endl;
+        }
+    }
+
+    if (!encontrado) {
+        cout << "No se encontraron accesos para el suscriptor con ID " << idBuscar << "." << endl;
     }
 }

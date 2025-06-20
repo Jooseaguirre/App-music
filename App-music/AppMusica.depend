@@ -588,7 +588,7 @@
 1749514284 e:\appmusic\app-music\acceso.h
 	"fecha.h"
 
-1749734007 e:\appmusic\app-music\fecha.h
+1750103151 e:\appmusic\app-music\fecha.h
 	<iostream>
 
 1749514284 source:e:\appmusic\app-music\accesoarchivo.cpp
@@ -598,7 +598,7 @@
 	"acceso.h"
 	<string>
 
-1749651886 source:e:\appmusic\app-music\accesomanager.cpp
+1750278925 source:e:\appmusic\app-music\accesomanager.cpp
 	"AccesoManager.h"
 	"Sesion.h"
 	"AccesoArchivo.h"
@@ -608,15 +608,15 @@
 	"cancionmanager.h"
 	<iostream>
 
-1749607285 e:\appmusic\app-music\accesomanager.h
+1750278937 e:\appmusic\app-music\accesomanager.h
 	<string>
 
-1749514284 e:\appmusic\app-music\cancion.h
+1750104314 e:\appmusic\app-music\cancion.h
 	"fecha.h"
 
-1749597799 e:\appmusic\app-music\cancionmanager.h
+1750277427 e:\appmusic\app-music\cancionmanager.h
 
-1749514284 e:\appmusic\app-music\cancionarchivo.h
+1750189655 e:\appmusic\app-music\cancionarchivo.h
 	"cancion.h"
 	<string>
 
@@ -628,33 +628,33 @@
 1749514284 e:\appmusic\app-music\artista.h
 	<string>
 
-1749605510 source:e:\appmusic\app-music\artistaarchivo.cpp
+1750189858 source:e:\appmusic\app-music\artistaarchivo.cpp
 	"artistaarchivo.h"
 	<cstdio>
 
-1749602754 e:\appmusic\app-music\artistaarchivo.h
+1750189858 e:\appmusic\app-music\artistaarchivo.h
 	<string>
 	"artista.h"
 
-1749514284 source:e:\appmusic\app-music\artistamanager.cpp
+1750189820 source:e:\appmusic\app-music\artistamanager.cpp
 	"artistamanager.h"
 	"artistaarchivo.h"
 	"artista.h"
 	<iostream>
 
-1749514284 e:\appmusic\app-music\artistamanager.h
+1750105926 e:\appmusic\app-music\artistamanager.h
 	"artista.h"
 	<string>
 
-1749514284 source:e:\appmusic\app-music\cancion.cpp
+1750102572 source:e:\appmusic\app-music\cancion.cpp
 	<cstring>
 	"cancion.h"
 	<string>
 
-1749514284 source:e:\appmusic\app-music\cancionarchivo.cpp
+1750189638 source:e:\appmusic\app-music\cancionarchivo.cpp
 	"cancionarchivo.h"
 
-1749737453 source:e:\appmusic\app-music\cancionmanager.cpp
+1750277427 source:e:\appmusic\app-music\cancionmanager.cpp
 	<iostream>
 	<cstring>
 	"cancionManager.h"
@@ -664,17 +664,19 @@
 	"cancionxartistaarchivo.h"
 	"artistaarchivo.h"
 
-1749734038 source:e:\appmusic\app-music\fecha.cpp
+1750103126 source:e:\appmusic\app-music\fecha.cpp
 	<iostream>
 	"fecha.h"
+	<ctime>
 
-1749514284 source:e:\appmusic\app-music\main.cpp
+1750279515 source:e:\appmusic\app-music\main.cpp
 	<iostream>
 	"menu.h"
+	"sesion.h"
 
 1749598377 e:\appmusic\app-music\menu.h
 
-1749747302 source:e:\appmusic\app-music\menu.cpp
+1750279014 source:e:\appmusic\app-music\menu.cpp
 	<iostream>
 	<cstdlib>
 	"menu.h"
@@ -686,7 +688,8 @@
 	"reportes.h"
 	"sesion.h"
 
-1749596557 e:\appmusic\app-music\suscriptormanager.h
+1750280248 e:\appmusic\app-music\suscriptormanager.h
+	<string>
 
 1749514284 e:\appmusic\app-music\reportesmanager.h
 
@@ -695,7 +698,7 @@
 	"reportesmanager.h"
 	"artistamanager.h"
 
-1749734218 source:e:\appmusic\app-music\suscriptor.cpp
+1750187142 source:e:\appmusic\app-music\suscriptor.cpp
 	<cstring>
 	"suscriptor.h"
 	<string>
@@ -707,14 +710,14 @@
 	<iostream>
 	"fecha.h"
 
-1749653548 source:e:\appmusic\app-music\suscriptorarchivo.cpp
+1750186679 source:e:\appmusic\app-music\suscriptorarchivo.cpp
 	"suscriptorarchivo.h"
 
-1749596621 e:\appmusic\app-music\suscriptorarchivo.h
+1750186701 e:\appmusic\app-music\suscriptorarchivo.h
 	<string>
 	"suscriptor.h"
 
-1749596575 source:e:\appmusic\app-music\suscriptormanager.cpp
+1750280351 source:e:\appmusic\app-music\suscriptormanager.cpp
 	<iostream>
 	<cstring>
 	"suscriptor.h"
@@ -740,21 +743,21 @@
 
 1749593714 e:\appmusic\app-music\reportes.h
 
-1749746637 source:e:\appmusic\app-music\sesion.cpp
+1750280569 source:e:\appmusic\app-music\sesion.cpp
 	"sesion.h"
 	"suscriptormanager.h"
 	"suscriptorarchivo.h"
 	"cancionarchivo.h"
 	"accesomanager.h"
 
-1749606556 e:\appmusic\app-music\sesion.h
+1750104404 e:\appmusic\app-music\sesion.h
 
-1749596815 source:e:\appmusic\app-music\cancionxartistaarchivo.cpp
+1750185968 source:e:\appmusic\app-music\cancionxartistaarchivo.cpp
 	"cancionxartista.h"
 	"cancionxartistaarchivo.h"
 	<cstdio>
 
-1749594902 e:\appmusic\app-music\cancionxartistaarchivo.h
+1750185925 e:\appmusic\app-music\cancionxartistaarchivo.h
 	"CancionXArtista.h"
 	<string>
 

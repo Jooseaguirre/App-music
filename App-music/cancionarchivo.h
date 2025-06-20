@@ -15,5 +15,6 @@ public:
     Cancion leer(int pos);
     int getCantidadRegistros();
     Cancion buscarPorId(int id);
+    int buscarPosicionPorId(int id);
 
 };
