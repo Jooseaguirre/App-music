@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="AppMusica" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/AppMusica" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/AppMusica" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="acceso.cpp" />
+		<Unit filename="acceso.h" />
+		<Unit filename="accesoarchivo.cpp" />
+		<Unit filename="accesoarchivo.h" />
+		<Unit filename="accesomanager.cpp" />
+		<Unit filename="accesomanager.h" />
+		<Unit filename="artista.cpp" />
+		<Unit filename="artista.h" />
+		<Unit filename="artistaarchivo.cpp" />
+		<Unit filename="artistaarchivo.h" />
+		<Unit filename="artistamanager.cpp" />
+		<Unit filename="artistamanager.h" />
+		<Unit filename="backup.cpp" />
+		<Unit filename="backup.h" />
+		<Unit filename="cancion.cpp" />
+		<Unit filename="cancion.h" />
+		<Unit filename="cancionarchivo.cpp" />
+		<Unit filename="cancionarchivo.h" />
+		<Unit filename="cancionmanager.cpp" />
+		<Unit filename="cancionmanager.h" />
+		<Unit filename="cancionxartista.cpp" />
+		<Unit filename="cancionxartista.h" />
+		<Unit filename="cancionxartistaarchivo.cpp" />
+		<Unit filename="cancionxartistaarchivo.h" />
+		<Unit filename="fecha.cpp" />
+		<Unit filename="fecha.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="menu.cpp" />
+		<Unit filename="menu.h" />
+		<Unit filename="reportes.cpp" />
+		<Unit filename="reportes.h" />
+		<Unit filename="sesion.cpp" />
+		<Unit filename="sesion.h" />
+		<Unit filename="suscriptor.cpp" />
+		<Unit filename="suscriptor.h" />
+		<Unit filename="suscriptorarchivo.cpp" />
+		<Unit filename="suscriptorarchivo.h" />
+		<Unit filename="suscriptormanager.cpp" />
+		<Unit filename="suscriptormanager.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
