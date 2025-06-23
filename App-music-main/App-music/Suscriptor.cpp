@@ -7,7 +7,6 @@ using namespace std;
 
 
 Suscriptor::Suscriptor(){
-  //  _idSuscriptor = 0;
     strcpy(_dni, "");
     strcpy(_nombre, "");
     strcpy(_apellido, "");
@@ -17,7 +16,6 @@ Suscriptor::Suscriptor(){
 }
 
 Suscriptor::Suscriptor(int id, std::string dni, std::string nombre, std::string apellido, std::string telefono, std::string email, Fecha fechaNacimiento){
-    /*setIdSuscriptor(id);*/
     setDni(dni);
     setNombre(nombre);
     setApellido(apellido);

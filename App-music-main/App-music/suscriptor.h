@@ -19,7 +19,7 @@ public:
     Suscriptor();
     Suscriptor(int id, std::string dni, std::string nombre, std::string apellido, std::string telefono, std::string email, Fecha fecha_nacimiento);
 
-    int getId();
+    int getId() { return _idSuscriptor; };
     std::string getDni();
     std::string getNombre();
     std::string getApellido();
@@ -29,7 +29,7 @@ public:
     Fecha getFechaNacimiento();
     std::string toCSV();
 
-    void setId(int id);
+    void setId(int id) { _idSuscriptor = id; };
     void setDni(std::string dni);
     void setNombre(std::string nombre);
     void setApellido(std::string apellido);
@@ -38,8 +38,6 @@ public:
     void setActivo(bool activo);
     void setFecha(Fecha fecha_nacimiento);
 
-    int getIdSuscriptor() { return _idSuscriptor; }
-    void setIdSuscriptor(int id) { _idSuscriptor = id; }
 };
 
 

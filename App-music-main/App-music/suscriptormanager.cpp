@@ -21,12 +21,12 @@ void SuscriptorManager::cargarSuscriptor(){
     int total = arch.getCantidadRegistros();
     for (int i = 0; i < total; i++){
         Suscriptor aux = arch.leer(i);
-        if (aux.getIdSuscriptor() > id){
-            id = aux.getIdSuscriptor();
+        if (aux.getId() > id){
+            id = aux.getId();
         }
     }
 
-s.setIdSuscriptor(id + 1);
+s.setId(id + 1);
 
 
 
@@ -99,7 +99,7 @@ void SuscriptorManager::listarTodos(){
     for (int i = 0; i < cantidad; i++) {
         s = sArchivo.leer(i);
 
-        cout << "ID: " << s.getIdSuscriptor() << endl;
+        cout << "ID: " << s.getId() << endl;
         cout << "DNI: " << s.getDni() << endl;
         cout << "Nombre: " << s.getNombre() << endl;
         cout << "Apellido: " << s.getApellido() << endl;
@@ -236,7 +236,7 @@ void SuscriptorManager::eliminarSuscriptor(){
 
 bool SuscriptorManager::existeSuscriptor(int id) {
     SuscriptorArchivo archivo;
-    return archivo.buscarPorId(id).getIdSuscriptor() != -1;
+    return archivo.buscarPorId(id).getId() != -1;
 }
 
 
@@ -253,7 +253,7 @@ bool SuscriptorManager::darDeAltaSuscriptor() {
 
     for (int i = 0; i < total; i++) {
         Suscriptor s = archivo.leer(i);
-        if (s.getIdSuscriptor() == id) {
+        if (s.getId() == id) {
             if (s.getActivo()) {
                 cout << "El suscriptor ya está activo." << endl;
                 return false;
@@ -285,7 +285,7 @@ void SuscriptorManager::buscarSuscriptorPorId() {
     if (posicion >= 0) {
         Suscriptor s = archivo.leer(posicion);
 
-        cout << "ID: " << s.getIdSuscriptor() << endl;
+        cout << "ID: " << s.getId() << endl;
         cout << "DNI: " << s.getDni() << endl;
         cout << "Nombre: " << s.getNombre() << endl;
         cout << "Apellido: " << s.getApellido() << endl;

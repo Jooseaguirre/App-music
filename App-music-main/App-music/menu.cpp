@@ -40,7 +40,12 @@ void menuPrincipal() {
                 menuUsuario();
                 break;
             case 2:
-                menuAdministrador();
+                if (Sesion::esAdministrador()) {
+                    menuAdministrador();
+                } else {
+                    cout << "Acceso denegado. Solo el administrador puede ingresar a este menu" << endl;
+                    system("pause");
+                }
                 break;
             case 3:
                 if (Sesion::estaLogueado()) {
@@ -77,7 +82,7 @@ void menuUsuario() {
         cout << "\n======= MENU USUARIO =======" << endl;
         cout << "1. Reproducir Cancion" << endl;
         cout << "2. Menu Reportes" << endl;
-        cout << "3. Volver al menu principal" << endl;
+        cout << "0. Volver al menu principal" << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcion;
 
@@ -90,7 +95,7 @@ void menuUsuario() {
                 menuReportes();
                 system("pause");
                 break;
-            case 3:
+            case 0:
                 cout << "Volviendo al menu principal..." << endl;
                 system("pause");
                 return;
@@ -98,7 +103,7 @@ void menuUsuario() {
                 cout << "Opcion invalida. Intente otra vez." << endl;
                 system("pause");
         }
-    } while (opcion != 3);
+    } while (opcion != 0);
 }
 
 void menuAdministrador() {
@@ -112,7 +117,7 @@ void menuAdministrador() {
         cout << "3. Menu Artistas" << endl;
         cout << "4. Menu Accesos" << endl;
         cout << "5. Mantenimiento" << endl;
-        cout << "6. Volver al menú principal" << endl;
+        cout << "0. Volver al menu principal" << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcion;
 
@@ -132,7 +137,7 @@ void menuAdministrador() {
             case 5:
                 menuMantenimiento();
                 break;
-            case 6:
+            case 0:
                 cout << "Volviendo al menu principal..." << endl;
                 system("pause");
                 return;
@@ -140,11 +145,10 @@ void menuAdministrador() {
                 cout << "Opcion invalida. Intente otra vez." << endl;
                 system("pause");
         }
-    } while (opcion != 6);
+    } while (opcion != 0);
 }
 
 void menuLogin() {
-    SuscriptorManager sManager;
     int opcion;
 
     do {
@@ -153,7 +157,7 @@ void menuLogin() {
         cout << "1. Iniciar sesion" << endl;
         cout << "2. Cerrar sesion" << endl;
         cout << "3. Mostrar ID suscriptor logueado" << endl;
-        cout << "4. Volver al menú principal" << endl;
+        cout << "0. Volver al menú principal" << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcion;
 
@@ -175,7 +179,7 @@ void menuLogin() {
                 }
                 system("pause");
                 break;
-            case 4:
+            case 0:
                 cout << "Volviendo al menu principal..." << endl;
                 system("pause");
                 return;
@@ -184,7 +188,7 @@ void menuLogin() {
                 system("pause");
         }
 
-    } while (opcion != 4);
+    } while (opcion != 0);
 }
 
 void menuCanciones(){
@@ -295,11 +299,11 @@ void menuArtistas() {
                 system("pause");
                 break;
             case 0:
-                cout << "Volviendo al menú principal..." << endl;
+                cout << "Volviendo al menu principal..." << endl;
                 system("pause");
                 return;
             default:
-                cout << "Opcion inválida, intente nuevamente." << endl;
+                cout << "Opcion invalida, intente nuevamente." << endl;
                 system("pause");
         }
 
@@ -321,7 +325,7 @@ void menuSuscriptores() {
         cout << "5. Listar todos los suscriptores" << endl;
         cout << "6. Buscar suscriptor por ID" << endl;
         cout << "7. Mostrar cantidad de suscriptores" << endl;
-        cout << "8. Salir al menu principal" << endl;
+        cout << "0. Salir al menu principal" << endl;
         cout << "Seleccione una opcion (1-7): ";
         cin >> opcionSuscriptor;
 
@@ -354,7 +358,7 @@ void menuSuscriptores() {
                 sManager.mostrarCantidadSuscriptores();
                 system("pause");
                 break;
-            case 8:
+            case 0:
                 cout << "Volviendo al menu principal..." << endl;
                 system("pause");
                 return;
@@ -364,7 +368,7 @@ void menuSuscriptores() {
         }
         cout << endl << endl;
 
-    } while (opcionSuscriptor != 8);
+    } while (opcionSuscriptor != 0);
 }
 
 void menuAcceso() {
@@ -377,7 +381,7 @@ void menuAcceso() {
         cout << "1. Registrar Acceso" << endl;
         cout << "2. Mostrar todos los Accesos" << endl;
         cout << "3. Mostrar accesos por ID" << endl;
-        cout << "4. Salir al menu principal" << endl;
+        cout << "0. Salir al menu principal" << endl;
         cout << "Seleccione una opcion (1-3): ";
         cin >> opcionAcceso;
 
@@ -394,7 +398,7 @@ void menuAcceso() {
                 aManager.mostrarAccesosPorIdSuscriptor();
                 system("pause");
                 break;
-            case 4:
+            case 0:
                 cout << "Volviendo al menu principal..." << endl;
                 system("pause");
                 return;
@@ -404,7 +408,7 @@ void menuAcceso() {
         }
         cout << endl << endl;
 
-    } while (opcionAcceso != 4);
+    } while (opcionAcceso != 0);
 }
 
 void menuMantenimiento() {
@@ -414,7 +418,7 @@ void menuMantenimiento() {
         cout << "\n====== MANTENIMIENTO ======" << endl;
         cout << "1. Backup de suscriptores" << endl;
         cout << "2. Restaurar backup de suscriptores" << endl;
-        cout << "3. Volver" << endl;
+        cout << "0. Salir al menu principal" << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcion;
 
@@ -427,7 +431,7 @@ void menuMantenimiento() {
                 recuperarBackupSuscriptores();
                 system("pause");
                 break;
-            case 3:
+            case 0:
                 cout << "Volviendo al menu anterior..." << endl;
                 system("pause");
                 break;
@@ -437,7 +441,7 @@ void menuMantenimiento() {
                 break;
         }
 
-    } while(opcion != 3);
+    } while(opcion != 0);
 }
 
 
@@ -446,25 +450,46 @@ void menuReportes() {
 
     int opcion;
     do {
+        system("cls");
         cout << "\n========= MENU DE REPORTES =========" << endl;
-        cout << "1. Artista más escuchado" << endl;
-        cout << "2. Suscriptor que más escuchó canciones" << endl;
-        cout << "3. Canción más escuchada" << endl;
+        cout << "1. Artista mas escuchado" << endl;
+        cout << "2. Suscriptor que mas escucho canciones" << endl;
+        cout << "3. Cancion mas escuchada" << endl;
         cout << "4. Cantidad de accesos por suscriptor" << endl;
         cout << "5. Suscriptores dados de baja" << endl;
-        cout << "6. Volver al menú anterior" << endl;
-        cout << "Seleccione una opción: ";
+        cout << "0. Volver al menu anterior" << endl;
+        cout << "Seleccione una opcion: ";
         cin >> opcion;
 
         switch(opcion) {
-            case 1: Reportes.ArtistaMasEscuchado(); break;
-            case 2: Reportes.SuscriptorMasActivo(); break;
-            case 3: Reportes.CancionMasEscuchada(); break;
-            case 4: Reportes.CantidadAccesosPorSuscriptor(); break;
-            case 5: Reportes.CantidadSuscriptoresDadosDeBaja(); break;
-            case 6: cout << "Volviendo..." << endl; break;
-            default: cout << "Opción inválida." << endl;
+            case 1:
+                Reportes.ArtistaMasEscuchado();
+                system("pause");
+                break;
+            case 2:
+                Reportes.SuscriptorMasActivo();
+                system("pause");
+                break;
+            case 3:
+                Reportes.CancionMasEscuchada();
+                system("pause");
+                break;
+            case 4:
+                Reportes.CantidadAccesosPorSuscriptor();
+                system("pause");
+                break;
+            case 5:
+                Reportes.CantidadSuscriptoresDadosDeBaja();
+                system("pause");
+                break;
+            case 0:
+                cout << "Volviendo al menu principal..." << endl;
+                return;
+            default:
+                cout << "Opcion invalida, intente de nuevo." << endl;
+                system("pause");
         }
-    } while (opcion != 6);
-}
+        cout << endl << endl;
 
+    } while (opcion != 0);
+}

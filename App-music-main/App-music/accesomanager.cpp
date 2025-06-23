@@ -65,7 +65,7 @@ void AccesoManager::mostrarAccesos() {
         Cancion c = cArchivo.buscarPorId(acceso.getIdCancion());
 
         cout << "Suscriptor: ";
-        if (s.getIdSuscriptor() != -1) {
+        if (s.getId() != -1) {
             cout << s.getNombre() << " " << s.getApellido();
         } else {
             cout << "ID " << acceso.getIdSuscriptor() << " (no encontrado)";
@@ -124,7 +124,7 @@ void AccesoManager::mostrarAccesosPorIdSuscriptor() {
             Cancion c = cArchivo.buscarPorId(acceso.getIdCancion());
 
             cout << "Suscriptor: ";
-            if (s.getIdSuscriptor() != -1) {
+            if (s.getId() != -1) {
                 cout << s.getNombre() << " " << s.getApellido();
             } else {
                 cout << "ID " << acceso.getIdSuscriptor() << " (no encontrado)";

@@ -87,7 +87,7 @@ int SuscriptorArchivo::buscarPosicionPorId(int id) {
     int cantidad = getCantidadRegistros();
     for (int i = 0; i < cantidad; i++) {
         Suscriptor reg = leer(i);
-        if (reg.getIdSuscriptor() == id) {
+        if (reg.getId() == id) {
             return i;
         }
     }
@@ -100,12 +100,12 @@ Suscriptor SuscriptorArchivo::buscarPorId(int id) {
     int cantidad = getCantidadRegistros();
     for (int i = 0; i < cantidad; i++) {
         reg = leer(i);
-        if (reg.getIdSuscriptor() == id) {
+        if (reg.getId() == id) {
             return reg;
         }
     }
 
     Suscriptor noEncontrado;
-    noEncontrado.setIdSuscriptor(-1);
+    noEncontrado.setId(-1);
     return noEncontrado;
 }

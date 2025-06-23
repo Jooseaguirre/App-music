@@ -11,4 +11,5 @@ public:
     static int getIdSuscriptorActual();
     static bool estaLogueado();
     static void reproduccionCancion();
+    static bool esAdministrador();
 };

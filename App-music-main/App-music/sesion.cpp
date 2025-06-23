@@ -51,7 +51,7 @@ bool Sesion::loginSuscriptor() {
 
     if (opc == 's' || opc == 'S') {
         Suscriptor nuevo;
-        nuevo.setIdSuscriptor(id);
+        nuevo.setId(id);
 
         string dni, nombre, apellido, telefono, email;
         Fecha f;
@@ -146,4 +146,9 @@ void Sesion::reproduccionCancion() {
 
     AccesoManager accesoManager;
     accesoManager.cargarAccesoAutomatico(Sesion::getIdSuscriptorActual(), cancionSeleccionada.getIdCancion());
+}
+
+
+bool Sesion::esAdministrador() {
+    return _idSuscriptorActual == 1;
 }

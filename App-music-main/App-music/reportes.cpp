@@ -64,7 +64,7 @@ void Reportes::ArtistaMasEscuchado() {
         }
     }
 
-    std::cout << "\nARTISTA(S) MÁS ESCUCHADO(S) ============================\n";
+    std::cout << "\nARTISTA(S) MAS ESCUCHADO(S) ============================\n";
     if (maxReproducciones > 0) {
         for (int i = 0; i < MAX_ARTISTAS; i++) {
             if (idsArtistas[i] != -1 && contador[i] == maxReproducciones) {
@@ -82,7 +82,7 @@ void Reportes::SuscriptorMasActivo() {
     AccesoArchivo     archivoAcceso;
     SuscriptorArchivo archivoSuscriptor;
 
-    const int MAX_SUSCRIPTORES = 99999;
+    const int MAX_SUSCRIPTORES = 9999;
     int idsSuscriptores[MAX_SUSCRIPTORES];
     int contador[MAX_SUSCRIPTORES];
 
@@ -122,7 +122,7 @@ void Reportes::SuscriptorMasActivo() {
         }
     }
 
-    std::cout << "\nSUSCRIPTOR(ES) MÁS ACTIVO(S) ============================\n";
+    std::cout << "\nSUSCRIPTOR(ES) MAS ACTIVO(S) ============================\n";
     if (maxAccesos > 0) {
         for (int i = 0; i < MAX_SUSCRIPTORES; i++) {
             if (idsSuscriptores[i] != -1 && contador[i] == maxAccesos) {
@@ -142,7 +142,7 @@ void Reportes::CancionMasEscuchada() {
     AccesoArchivo  archivoAcceso;
     CancionArchivo archivoCancion;
 
-    const int MAX_CANCIONES = 999999;
+    const int MAX_CANCIONES = 9999;
     int idsCanciones[MAX_CANCIONES];
     int contador[MAX_CANCIONES];
 
@@ -182,7 +182,7 @@ void Reportes::CancionMasEscuchada() {
         }
     }
 
-    std::cout << "\nCANCIÓN MÁS ESCUCHADA(S) ============================\n";
+    std::cout << "\nCANCION MAS ESCUCHADA(S) ============================\n";
     if (maxRepros > 0) {
         for (int i = 0; i < MAX_CANCIONES; i++) {
             if (idsCanciones[i] != -1 && contador[i] == maxRepros) {
@@ -203,7 +203,7 @@ void Reportes::CantidadAccesosPorSuscriptor() {
     AccesoArchivo     archivoAcceso;
     SuscriptorArchivo archivoSuscriptor;
 
-    const int MAX_SUSCRIPTORES = 5000;
+    const int MAX_SUSCRIPTORES = 9999;
     int idsSuscriptores[MAX_SUSCRIPTORES];
     int contador[MAX_SUSCRIPTORES];
 
@@ -262,7 +262,7 @@ void Reportes::CantidadSuscriptoresDadosDeBaja() {
         Suscriptor sub = archivoSuscriptor.leer(i);
 
         if (sub.getActivo() == false) {
-            std::cout << sub.getNombre() << " (ID " << sub.getIdSuscriptor() << ") - Dado de baja\n";
+            std::cout << sub.getNombre() << " (ID " << sub.getId() << ") - Dado de baja\n";
             cantidadBaja++;
         }
     }
