@@ -117,20 +117,29 @@ void Sesion::reproduccionCancion() {
     }
 
     cout << "Listado de canciones disponibles:" << endl;
+    bool hayActivas = false;
     for (int i = 0; i < total; i++) {
         Cancion c = archivoCancion.leer(i);
-        cout << c.getIdCancion() << " - " << c.getNombre() << endl;
+        if (c.getEstado()) {  // Solo activas
+            cout << c.getIdCancion() << " - " << c.getNombre() << endl;
+            hayActivas = true;
+        }
+    }
+
+    if (!hayActivas) {
+        cout << "No hay canciones activas para reproducir." << endl;
+        return;
     }
 
     int idCancion;
-    cout << "Ingrese ID de la canción a reproducir: ";
+    cout << "Ingrese ID de la cancion a reproducir: ";
     cin >> idCancion;
 
     Cancion cancionSeleccionada;
     bool encontrada = false;
     for (int i = 0; i < total; i++) {
         Cancion c = archivoCancion.leer(i);
-        if (c.getIdCancion() == idCancion) {
+        if (c.getIdCancion() == idCancion && c.getEstado()) {
             cancionSeleccionada = c;
             encontrada = true;
             break;
@@ -138,7 +147,7 @@ void Sesion::reproduccionCancion() {
     }
 
     if (!encontrada) {
-        cout << "Cancion no encontrada." << endl;
+        cout << "ID invalido o cancion dada de baja." << endl;
         return;
     }
 

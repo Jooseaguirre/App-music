@@ -6,16 +6,31 @@
 using namespace std;
 
 void ArtistaManager::cargarArtista() {
+    ArtistaArchivo archivo;
+    int nuevoId = 1;
+
+    // iterar sobre los id y buscar el más alto
+    int total = archivo.getCantidadRegistros();
+    for (int i = 0; i < total; i++) {
+        Artista a = archivo.leer(i);
+        if (a.getId() >= nuevoId) {
+            nuevoId = a.getId() + 1;
+        }
+    }
+
     Artista art;
+    art.setId(nuevoId);
+
+    cin.ignore();
     art.cargar();
 
-    ArtistaArchivo archivo;
     if (archivo.guardar(art)) {
-        cout << "Artista guardado." << endl;
+        cout << "Artista guardado con ID " << nuevoId << "." << endl;
     } else {
         cout << "Error al guardar el artista." << endl;
     }
 }
+
 
 void ArtistaManager::listarArtistas() {
     ArtistaArchivo archivo;

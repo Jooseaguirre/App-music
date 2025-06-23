@@ -40,6 +40,7 @@ void CancionManager::cargarCancion() {
     s.setNombre(nombre);
     s.setAutor(autor);
     s.setFechaDePublicacion(f);
+    s.setEstado(true);
 
     ArtistaArchivo artistaArchivo;
     CancionXArtistaArchivo archivoRel;
@@ -96,7 +97,7 @@ void CancionManager::cargarCancion() {
             }
 
             do {
-                cout << "Ingrese ID del artista que participo: ";
+                cout << "Ingrese ID del artista que participo (si es el unico artista, vuelva a escribir el mismo ID): ";
                 cin >> idArtista;
                 cin.ignore();
 
@@ -140,7 +141,7 @@ void CancionManager::cargarCancion() {
                     cout << "Error al guardar la asociación." << endl;
                 }
             } else {
-                cout << "Este artista ya está asociado a esta canción." << endl;
+                cout << "Este artista ya está asociado a esta cancion." << endl;
             }
 
             cout << "¿Agregar otro artista? (s/n): ";
@@ -149,7 +150,7 @@ void CancionManager::cargarCancion() {
         } while (opcion == 's' || opcion == 'S');
 
     } else {
-        cout << "Error al guardar la canción." << endl;
+        cout << "Error al guardar la cancion." << endl;
     }
 }
 
@@ -247,6 +248,8 @@ void CancionManager::listarTodas() {
 }
 
 
+
+
 void CancionManager::borrarCancion() {
     int id;
     cout << "ID de la cancion a dar de baja: ";
@@ -263,7 +266,7 @@ void CancionManager::borrarCancion() {
     Cancion c = archivo.leer(pos);
 
     if (!c.getEstado()) {
-        cout << "La cancion ya está dada de baja." << endl;
+        cout << "La cancion ya esta dada de baja." << endl;
         return;
     }
 

@@ -28,8 +28,14 @@ void AccesoManager::cargarAcceso() {
 
     CancionArchivo cArchivo;
     Cancion cancion = cArchivo.buscarPorId(idCancion);
-    if (cancion.getIdCancion() == -1) {
-        cout << "ID de canción inválido." << endl;
+
+    if (cancion.getIdCancion() == -1 ) {
+        cout << "ID de canción inválido o la canción está dada de baja." << endl;
+        return;
+    }
+
+    if (!cancion.getEstado()) {
+        cout << "La canción está dada de baja y no puede reproducirse." << endl;
         return;
     }
 

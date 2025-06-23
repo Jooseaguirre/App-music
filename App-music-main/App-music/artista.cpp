@@ -42,9 +42,9 @@ void Artista::setEstado(bool estado) {
 }
 
 void Artista::cargar() {
-    cout << "ID del artista: ";
-    cin >> _id; //guardo en un atributo pv pq es toy dentro de la clase
-    cin.ignore();
+    //cout << "ID del artista: ";
+    //cin >> _id; //guardo en un atributo pv pq es toy dentro de la clase
+    //cin.ignore();
     cout << "Nombre del artista: ";
     cin.getline(_nombre, sizeof(_nombre));
     _estado = true;

@@ -784,7 +784,7 @@
 	"acceso.h"
 	<string>
 
-1750635391 source:c:\users\maia\app\app-music-main\app-music-main\app-music\accesomanager.cpp
+1750717569 source:c:\users\maia\app\app-music-main\app-music-main\app-music\accesomanager.cpp
 	"AccesoManager.h"
 	"Sesion.h"
 	"AccesoArchivo.h"
@@ -815,9 +815,9 @@
 	<iostream>
 	"fecha.h"
 
-1750384715 c:\users\maia\app\app-music-main\app-music-main\app-music\cancionmanager.h
+1750717595 c:\users\maia\app\app-music-main\app-music-main\app-music\cancionmanager.h
 
-1750384715 source:c:\users\maia\app\app-music-main\app-music-main\app-music\artista.cpp
+1750715231 source:c:\users\maia\app\app-music-main\app-music-main\app-music\artista.cpp
 	"artista.h"
 	<iostream>
 	<cstring>
@@ -833,7 +833,7 @@
 	<string>
 	"artista.h"
 
-1750384715 source:c:\users\maia\app\app-music-main\app-music-main\app-music\artistamanager.cpp
+1750715231 source:c:\users\maia\app\app-music-main\app-music-main\app-music\artistamanager.cpp
 	"artistamanager.h"
 	"artistaarchivo.h"
 	"artista.h"
@@ -859,7 +859,7 @@
 1750384715 source:c:\users\maia\app\app-music-main\app-music-main\app-music\cancionarchivo.cpp
 	"cancionarchivo.h"
 
-1750384715 source:c:\users\maia\app\app-music-main\app-music-main\app-music\cancionmanager.cpp
+1750717595 source:c:\users\maia\app\app-music-main\app-music-main\app-music\cancionmanager.cpp
 	<iostream>
 	<cstring>
 	"cancionManager.h"
@@ -898,7 +898,7 @@
 
 1750384715 c:\users\maia\app\app-music-main\app-music-main\app-music\menu.h
 
-1750712417 source:c:\users\maia\app\app-music-main\app-music-main\app-music\sesion.cpp
+1750717569 source:c:\users\maia\app\app-music-main\app-music-main\app-music\sesion.cpp
 	"sesion.h"
 	"suscriptormanager.h"
 	"suscriptorarchivo.h"
