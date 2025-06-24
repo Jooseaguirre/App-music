@@ -203,6 +203,7 @@ void menuCanciones(){
         cout << "4. Cantidad de canciones" << endl;
         cout << "5. Dar de alta canciones" << endl;
         cout << "6. Buscar cancion por ID" << endl;
+        cout << "7. Modificar cancion por ID" << endl;
         cout << "0. Volver al menu principal" << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcionCancion;
@@ -232,6 +233,11 @@ void menuCanciones(){
                 cManager.buscarPorId();
                 system("pause");
                 break;
+            case 7:
+                cManager.modificarCancion();
+                system("pause");
+                break;
+
             case 0:
                 cout << "Volviendo al menu anterior..." << endl;
                 system("pause");

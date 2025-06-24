@@ -14,7 +14,7 @@ void SuscriptorManager::cargarSuscriptor(){
 
     Suscriptor s;
     SuscriptorArchivo sArchivo;
-    bool  valido = true;
+    bool  valido = false;
     int id = 0;
 
     SuscriptorArchivo arch;
@@ -52,7 +52,7 @@ do {
 
     for (int i = 0; telefono[i] != '\0'; i++) {
         if (telefono[i] < '0' || telefono[i] > '9') {
-            valido = false;
+            valido = true;
             cout << "Telefono invalido, solo numeros permitidos. Intente de nuevo." << endl;
             break;
         }
